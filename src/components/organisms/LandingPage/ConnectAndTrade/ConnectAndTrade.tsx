@@ -7,10 +7,10 @@ import { ButtonProperties } from "@shared/libs/helpers";
 
 const ConnectAndTrade = () => {
   return (
-    <div className="flex items-center pt-[10.188rem]">
+    <div className="flex smallLaptop:items-center pl-4 pr-[1.25rem] smallLaptop:px-[3.125rem] flex-col bigLaptop:flex-row pt-[2.313rem] smallLaptop:pt-[10.188rem]">
       <div>
-        <h2 className="text-47 font-semibold">Connect and Trade Well Beyond Borders</h2>
-        <p className="text-14 my-[2.313rem] w-[33.188rem] font-medium opacity-70">
+        <h2 className="text-20 tablet:text-37 smallLaptop:text-47 font-semibold">Connect and Trade Well Beyond Borders</h2>
+        <p className="text-14 my-[2.313rem] tablet:w-[33.188rem] font-medium opacity-70">
           Individual or Merchant, empower your business today with Cryp. We help you make sense of your everyday web payments.
         </p>
         <CustomButton
@@ -22,7 +22,9 @@ const ConnectAndTrade = () => {
           variant={ButtonProperties.VARIANT.primary.name}
         />
       </div>
-      <Icon name="globe" />
+      <div className="flex items-center justify-center">
+        <Icon className="w-[18.5rem] h-[20.188rem] smallLaptop:w-[50.5rem] smallLaptop:h-[50.438rem]" name="globe" />
+      </div>
     </div>
   );
 };

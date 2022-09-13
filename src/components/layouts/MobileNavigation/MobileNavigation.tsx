@@ -37,7 +37,7 @@ const MobileNavigation = ({ theme }: MobileNavigationProps) => {
 
   return (
     <>
-      <div className={`flex justify-between py-4 px-10 tablet:px-14 items-center ${navBar || isOpen ? "bg-black" : ""}`}>
+      <div className={`flex justify-between py-4 px-[1.25rem] tablet:px-14 items-center ${navBar || isOpen ? "bg-black" : ""}`}>
         <CustomLink customClass="cursor-pointer mt-4" destination="/">
           <Icon className="w-[4.125rem] h-[1.75rem]" name="logo" />
         </CustomLink>

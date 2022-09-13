@@ -13,11 +13,7 @@ const MobileFooter = ({ theme }: MobileFooterProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <div
-      className={`smallLaptop:hidden flex flex-col ${
-        theme === Themes.DARK ? "text-white" : "text-black"
-      } opacity-70 justify-between px-3   laptop:px-40 laptop:py-5 drop-shadow-md tabet:h-80`}
-    >
+    <div className={`smallLaptop:hidden flex flex-col text-black opacity-70 justify-between px-3   laptop:px-40 laptop:py-5 drop-shadow-md tabet:h-80`}>
       <div className="divide-y-[0.1px] divide-gray-100/[.2]">
         {FooterData.map((data) => (
           <div className="w-full mb-12 smallLaptop:mt-7 " key={data.identifier}>

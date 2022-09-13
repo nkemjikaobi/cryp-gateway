@@ -52,9 +52,9 @@ const MobileFooterOptions = ({ options, theme, logo, title, hasIcons, setActiveI
         <div className="flex items-center">
           <Icon className="mr-4" name={logo} />
           {theme === Themes.DARK && isActive && activeIndex === identifier ? (
-            <Icon className="cursor-pointer" name="dropDown" />
+            <Icon className="cursor-pointer" name="dropDownBlack" />
           ) : theme === Themes.DARK ? (
-            <Icon className="cursor-pointer" name="dropDown" />
+            <Icon className="cursor-pointer" name="dropDownBlack" />
           ) : null}
           {theme === Themes.LIGHT && isActive && activeIndex === identifier ? (
             <Icon className="cursor-pointer" name="dropDownBlack" />

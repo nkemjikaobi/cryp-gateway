@@ -5,7 +5,7 @@ import React from "react";
  * @return {React.Component} React component
  */
 const SVG = (props: any): unknown => (
-  <svg fill="none" height="807" viewBox="0 0 808 807" width="808" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+  <svg fill="none" height="807" viewBox="0 0 808 807" width="808" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}>
     <rect fill="url(#pattern0)" height="807" width="808" />
     <defs>
       <pattern height="1" id="pattern0" patternContentUnits="objectBoundingBox" width="1">
