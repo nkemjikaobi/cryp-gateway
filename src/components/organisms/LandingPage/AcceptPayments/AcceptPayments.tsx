@@ -46,7 +46,7 @@ const AcceptPaymentsData = [
   },
   {
     id: 6,
-    name: "ussd",
+    name: "USSD",
     body: "Plaid godard small batch health goth man braid, succulents disrupt subway tile. Vinyl proident sriracha, offal VHS",
   },
 ];

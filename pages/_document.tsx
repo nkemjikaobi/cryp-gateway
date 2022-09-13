@@ -14,8 +14,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link as="image" href="images/downsize-desktop.png" rel="preload" />
-          <link as="image" href="images/downsize-mobile.png" rel="preload" />
           <link href="https://fonts.googleapis.com" rel="preconnect" />
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet" />
