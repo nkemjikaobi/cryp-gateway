@@ -15,7 +15,10 @@ const GetComfortable = () => {
           Selvage post-ironic you probably haven&apos;t heard of them ut hoodie knausgaard. Normcore pitchfork subway tile glossier praxis, tempor hot chicken single-origin coffee
           occupy sint try-hard XOXO. Hot chicken health goth jianbing, glossier
         </p>
-        <CustomLink customClass="text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center mb-12" destination="/auth/sign-up">
+        <CustomLink
+          customClass="text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center mb-12"
+          destination="/auth/sign-up"
+        >
           Get Started <Icon className="ml-4" name="yellowArrowRight" />
         </CustomLink>
       </div>
