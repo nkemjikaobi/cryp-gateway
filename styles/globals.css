@@ -22,7 +22,7 @@
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #388f88, 0 0 5px #388f88 !important;
+  box-shadow: 0 0 0.625rem #388f88, 0 0 0.313rem #388f88 !important;
 }
 
 #nprogress .spinner-icon {

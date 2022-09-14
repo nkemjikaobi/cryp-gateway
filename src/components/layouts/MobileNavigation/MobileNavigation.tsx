@@ -50,7 +50,7 @@ const MobileNavigation = ({ theme }: MobileNavigationProps) => {
         )}
       </div>
       <ul className={`px-8 pt-8 relative tablet:px-12 pb-5 b-black ${isOpen ? "openNav" : "closeNav"}`} ref={node}>
-        <div className="bg-glass-400 absolute top-0 left-0 backdrop-blur-[50px] h-full w-full" />
+        <div className="bg-glass-400 absolute top-0 left-0 backdrop-blur-[3.125rem] h-full w-full" />
         {DesktopNav.map((data) => (
           <li className="mx-2 mb-8 flex items-center text-white opacity-95" key={data.id}>
             <CustomLink customClass="capitalize text-16 font-semibold" destination={data.route}>

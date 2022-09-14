@@ -53,7 +53,7 @@ const JoinWaitList = ({ setThankYou, setJoinWaitList }: JoinWaitListProps) => {
 
   return (
     <div className="flex flex-col relative justify-center rounded-2xl items-center w-[27rem] h-full tablet:w-[41.75rem] tablet:h-[40.5rem]">
-      <div className="bg-glass-100 rounded-[15px] absolute top-0 left-0 backdrop-blur-[100px] h-full w-full" />
+      <div className="bg-glass-100 rounded-[10.313rem] absolute top-0 left-0 backdrop-blur-[100px] h-full w-full" />
       <Toaster
         position="top-center"
         toastOptions={{

@@ -1,16 +1,14 @@
 import type { NextPage } from "next";
 import React from "react";
 
-import BasePageLayout from "@components/layouts/BasePageLayout/BasePageLayout";
-import HomePage from "@components/modules/HomePage/HomePage";
-
-import { Themes } from "@shared/libs/helpers";
+import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
+import SignInPage from "@components/modules/SignInPage/SignInPage";
 
 const Home: NextPage = () => {
   return (
-    <BasePageLayout hideFooterOnMobile={true} theme={Themes.LIGHT} title="Cryp Gateway">
-      <HomePage />
-    </BasePageLayout>
+    <AuthLayout title="Sign In">
+      <SignInPage />
+    </AuthLayout>
   );
 };
 

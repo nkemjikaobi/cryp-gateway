@@ -10,13 +10,13 @@ import SecurityQuestion from "@components/organisms/modals/SecurityQuestion/Secu
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const Login = () => {
-  const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
+  const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(true);
 
   return (
     <>
-      <div className="bg-white pt-[40px] px-[30px] tablet:px-[75px] pb-[61px] tablet:w-[736px] mx-[16px] tablet:mx-auto mt-[57px] rounded-[50px] shadow-auth">
+      <div className="bg-white pt-[2.5rem] px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[3.563rem] rounded-[3.125rem] shadow-auth">
         <h3 className="text-16 tablet:text-20 font-semibold">Nice to have you back @Adedam0la!</h3>
-        <div className="flex items-center mt-[37px] mb-[57px] text-14 tablet:text-18 font-medium">
+        <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
           Don’t have an account?{" "}
           <span className="text-crypGreen-800 ml-2">
             <CustomLink destination="/auth/sign-up">Register Now</CustomLink>
@@ -24,7 +24,7 @@ const Login = () => {
         </div>
         <div className="relative">
           <CustomInput
-            className="border border-glass-450 rounded-[5px] h-[60px] mr-4 mt-2 mb-[30px]"
+            className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
             container="tablet:px-6"
             inputClassName="placeholder:text-xs border-black"
             name="email"
@@ -32,7 +32,7 @@ const Login = () => {
             type="email"
           />
           <CustomInput
-            className="border border-glass-450 rounded-[5px] h-[60px] mr-4 mt-2 mb-4"
+            className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-4"
             container="px-6"
             iconPosition="end"
             id="date"
@@ -44,7 +44,7 @@ const Login = () => {
             Forgot Password?
           </CustomLink>
         </div>
-        <div className="flex flex-col space-y-[40px] tablet:space-y-[51px] justify-center items-center">
+        <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
           <CustomButton
             customClass="px-4 text-12 tablet:text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
             handleClick={() => setShowSecurityQuestion(true)}
@@ -54,10 +54,10 @@ const Login = () => {
           />
           <p className="font-semibold">or Sign in with</p>
         </div>
-        <div className="mt-[34px] flex items-center justify-between">
+        <div className="mt-[2.125rem] space-x-4 flex items-center justify-between">
           {SocialsData.map((social) => (
             <div
-              className="flex items-center justify-center space-x-2 cursor-pointer rounded-[10px] w-[130px] tablet:w-[242px] h-[47px] tablet:h-[60px] border border-glass-450"
+              className="flex items-center justify-center space-x-2 cursor-pointer rounded-[0.625rem] w-[11.875rem] tablet:w-[15.125rem] h-[2.938rem] tablet:h-[3.75rem] border border-glass-450"
               key={social.id}
             >
               <Icon name={social.icon} />

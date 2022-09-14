@@ -30,7 +30,7 @@ const DesktopFooter = ({ theme }: DesktopFooterProps) => {
         </div>
       </div>
       <div className={`${theme === Themes.DARK ? "bg-[#636476]" : "bg-[#F6F6F6]"}   p-10 text-14 font-medium relative h-[164px]`}>
-        <div className="bg-glass-500  absolute top-0 left-0 backdrop-blur-[150px] h-full w-full" />
+        <div className="bg-glass-500  absolute top-0 left-0 backdrop-blur-[13.125rem] h-full w-full" />
         <div className={`flex justify-center items-center pb-16 ${theme === Themes.DARK ? "text-white" : "text-black"} opacity-95 max-w-[90rem] mx-auto relative`}>
           <div className="absolute top-0 left-[3.188rem] flex items-center ">
             <h5 className="mr-4">Nigeria</h5>

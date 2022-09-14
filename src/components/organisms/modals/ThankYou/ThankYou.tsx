@@ -34,7 +34,7 @@ const ThankYou = ({ setThankYou }: ThankYouProps) => {
   };
   return (
     <div className="flex flex-col justify-center rounded-2xl items-center bg-waitList bg-no-repeat bg-cover bg-center relative">
-      <div className="bg-glass-100 rounded-[15px] absolute top-0 left-0 backdrop-blur-[100px] h-full w-full" />
+      <div className="bg-glass-100 rounded-[10.313rem] absolute top-0 left-0 backdrop-blur-[100px] h-full w-full" />
       <Icon className="absolute right-6 top-4 cursor-pointer" name="cancel" onClick={() => setThankYou(false)} />
       <Dialog.Title as="h4" className="mb-4 capitalize text-[2.313rem] opacity-95 whitespace-nowrap font-semibold mt-8">
         Thank You!

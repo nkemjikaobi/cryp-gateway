@@ -53,8 +53,11 @@ const CustomInput = ({
 
   return (
     <>
-      <div className={classNames("flex items-center h-[57.14px] w-full", className, error ? "!border-[#A0000B]" : "")}>
-        <div className={classNames("flex px-5 bg-white text-black items-center justify-start h-full w-full rounded-[5px] border-crypGray-100", container)} onClick={handleClick}>
+      <div className={classNames("flex items-center h-[3.571rem] w-full", className, error ? "!border-[#A0000B]" : "")}>
+        <div
+          className={classNames("flex px-5 bg-white text-black items-center justify-start h-full w-full rounded-[0.313rem] border-crypGray-100", container)}
+          onClick={handleClick}
+        >
           {icon && iconPosition === "start" && <Icon className={iconClass} name={icon} />}
           <input
             aria-label={name}
