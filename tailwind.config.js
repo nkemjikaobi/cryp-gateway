@@ -1,5 +1,10 @@
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    {
+      pattern: /bg-/,
+    },
+  ],
   theme: {
     fontFamily: {
       spaceGro: ["Space Grotesk", "sans-serif"],
@@ -39,6 +44,7 @@ module.exports = {
           200: "rgba(167, 237, 234, 0.3)",
           300: "rgba(255, 255, 255, 1)",
           400: "rgba(0, 0, 0, 0.2)",
+          450: "rgba(0, 0, 0, 0.5)",
           500: "rgba(246, 246, 246, 0.2);",
         },
         crypGreen: {
@@ -65,9 +71,11 @@ module.exports = {
         learn1: "url('/images/learn/learn1.png')",
         learn2: "url('/images/learn/learn2.png')",
         learn3: "url('/images/learn/learn3.png')",
+        authDoodles: "url('/images/auth/auth-screen-doodles.png')",
       },
       boxShadow: {
         acceptPayment: "0px 20px 40px rgba(156, 197, 195, 0.3)",
+        auth: "0px 20px 40px rgba(199, 199, 199, 0.3)",
       },
     },
   },

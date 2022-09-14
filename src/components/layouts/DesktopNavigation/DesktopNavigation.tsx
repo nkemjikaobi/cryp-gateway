@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
@@ -11,6 +12,7 @@ interface DesktopNavigationProps {
 }
 const DesktopNavigation = ({ theme }: DesktopNavigationProps) => {
   const [navBar, setNavBar] = useState<boolean>(false);
+  const router = useRouter();
 
   const changeBackGround = () => {
     if (window.scrollY > 80) {
@@ -48,7 +50,7 @@ const DesktopNavigation = ({ theme }: DesktopNavigationProps) => {
             ))}
           </ul>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between" onClick={() => router.push("/auth/sign-in")}>
           <p className=" cursor-pointer uppercase text-14 smallLaptop:text-16 bigLaptop:text-18 font-bold text-crypYellow-200 hover:text-crypYellow-300">sign in</p>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
@@ -6,6 +7,7 @@ import Icon from "@components/atoms/Icons";
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const ConnectAndTrade = () => {
+  const router = useRouter();
   return (
     <div className="flex smallLaptop:items-center pl-4 pr-[1.25rem] smallLaptop:px-[3.125rem] flex-col bigLaptop:flex-row pt-[2.313rem] smallLaptop:pt-[10.188rem]">
       <div>
@@ -15,7 +17,7 @@ const ConnectAndTrade = () => {
         </p>
         <CustomButton
           customClass="border-[#388F88] w-[10.25rem] text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
-          handleClick={() => {}}
+          handleClick={() => router.push("/auth/sign-up")}
           isTransparent={true}
           size={ButtonProperties.SIZES.small}
           title="GET STARTED"

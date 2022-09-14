@@ -12,7 +12,7 @@ interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   name?: string;
   readOnly?: boolean;
   type: string;
-  value: string;
+  value?: string;
   inputClassName?: string;
   container?: string;
   error?: string;
@@ -75,7 +75,7 @@ const CustomInput = ({
           {type === "password" && showPassword ? (
             <Icon className="cursor-pointer" name="eyeSlash" onClick={handleShowPassword} />
           ) : (
-            type === "password" && !showPassword && <Icon className="cursor-pointer" name="eye" onClick={handleShowPassword} />
+            type === "password" && !showPassword && <Icon className="cursor-pointer" name="lashes" onClick={handleShowPassword} />
           )}
         </div>
       </div>
@@ -98,4 +98,5 @@ CustomInput.defaultProps = {
   container: "",
   required: false,
   iconPosition: "start",
+  value: "",
 };

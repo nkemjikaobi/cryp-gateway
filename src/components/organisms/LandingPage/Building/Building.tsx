@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
@@ -5,6 +6,7 @@ import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const Building = () => {
+  const router = useRouter();
   return (
     <>
       <div className="pt-32 bigLaptop:pt-48 pb-16 smallLaptop:pb-36 pl-[1.25rem] tablet:pl-[3.125rem]">
@@ -20,7 +22,7 @@ const Building = () => {
           </p>
           <CustomButton
             customClass="px-4 text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
-            handleClick={() => {}}
+            handleClick={() => router.push("/auth/sign-up")}
             size={ButtonProperties.SIZES.big}
             title="CREATE A FREE ACCOUNT WITH US"
             variant={ButtonProperties.VARIANT.primary.name}
