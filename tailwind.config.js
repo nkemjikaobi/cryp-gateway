@@ -72,6 +72,7 @@ module.exports = {
         learn2: "url('/images/learn/learn2.png')",
         learn3: "url('/images/learn/learn3.png')",
         authDoodles: "url('/images/auth/auth-screen-doodles.png')",
+        authDoodlesMobile: "url('/images/auth/doodles-mobile.png')",
       },
       boxShadow: {
         acceptPayment: "0px 20px 40px rgba(156, 197, 195, 0.3)",
