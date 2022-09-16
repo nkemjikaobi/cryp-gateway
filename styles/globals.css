@@ -30,6 +30,14 @@
   border-left-color: #388f88 !important;
 }
 
+#upload {
+  background-image: linear-gradient(to right, #fff 60%, #388f88 0%), linear-gradient(to bottom, #388f88 60%, #fff 0%), linear-gradient(to left, #fff 60%, #388f88 0%),
+    linear-gradient(to top, #388f88 60%, #fff 0%);
+  background-position: top, right, bottom, left;
+  background-size: 40px 1px, 1px 40px, 40px 1px, 1px 40px;
+  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+}
+
 @keyframes openNav {
   0% {
     height: 0px;

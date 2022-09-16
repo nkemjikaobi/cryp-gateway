@@ -135,7 +135,7 @@ const CustomButton = ({
 
   return isSubmitting || isDisabled ? (
     <button
-      className={`pointer-events-none rounded-lg ${isTransparent ? `text-${disabled}` : `text-${textColor}`}  ${
+      className={`cursor-not-allowed rounded-lg ${isTransparent ? `text-${disabled}` : `text-${textColor}`}  ${
         isTransparent && `border border-${disabled}`
       }  whitespace-nowrap py-[16px] rounded-[4px] flex justify-center items-center h-[53px]  ${
         size === ButtonProperties.SIZES.small

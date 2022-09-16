@@ -49,6 +49,7 @@ module.exports = {
         },
         crypGreen: {
           50: "#E7FFFE",
+          70: "#A7EDEA",
           100: "#AFEE6E4",
           500: "#6ED7D3",
           600: "#5ABFBC",

@@ -53,7 +53,7 @@ const StepperComponent = ({ steps }: StepperComponentProps) => {
   };
 
   return (
-    <div className="bg-white pt-[2.5rem] mb-[2.563rem] px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[3.563rem] rounded-[3.125rem] shadow-auth">
+    <div className="bg-white pt-[2.5rem] mb-[2.563rem] isolate px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[3.563rem] rounded-[3.125rem] shadow-auth">
       <div className="flex items-center justify-center mb-[46px]">
         {steps.map((step, index) => (
           <div key={uuidv4()}>

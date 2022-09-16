@@ -19,10 +19,10 @@ const MobileNavigation = ({ theme }: MobileNavigationProps) => {
     setIsOpen(false);
   });
 
-  const [navBar, setNavBar] = useState<boolean>(false);
+  const [, setNavBar] = useState<boolean>(false);
 
   const changeBackGround = () => {
-    if (window.scrollY > 80) {
+    if (window.scrollY > 5) {
       setNavBar(true);
     } else {
       setNavBar(false);
@@ -37,7 +37,7 @@ const MobileNavigation = ({ theme }: MobileNavigationProps) => {
 
   return (
     <>
-      <div className={`flex justify-between py-4 px-[1.25rem] tablet:px-14 items-center ${navBar || isOpen ? "bg-black" : ""}`}>
+      <div className={`flex justify-between py-4 px-[1.25rem] tablet:px-14 items-center bg-white `}>
         <CustomLink customClass="cursor-pointer mt-4" destination="/">
           <Icon className="w-[4.125rem] h-[1.75rem]" name="logo" />
         </CustomLink>
