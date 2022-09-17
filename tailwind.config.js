@@ -38,6 +38,7 @@ module.exports = {
         crypGray: {
           100: "#FAFBFC",
           200: "#C5C9CD",
+          250: "#242424",
         },
         glass: {
           100: "rgba(255, 255, 255, 0.2)",
@@ -62,6 +63,9 @@ module.exports = {
         },
         crypMix: {
           200: "#A7EDEA",
+        },
+        crypRed: {
+          500: "#D62E2E",
         },
       },
       width: {
