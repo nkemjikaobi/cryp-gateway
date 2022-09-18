@@ -28,7 +28,7 @@ const SecurityQuestion = () => {
             placeholder="Enter Security Answer "
             type="email"
           />
-          <CustomLink customClass="absolute right-0 text-12 tablet:text-base text-crypGreen-800" destination="#">
+          <CustomLink customClass="absolute right-0 text-12 tablet:text-base text-crypGreen-800" destination="/auth/forgot-security-question">
             Forgot Security Question?
           </CustomLink>
         </div>

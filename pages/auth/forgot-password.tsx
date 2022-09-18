@@ -4,7 +4,7 @@ import React from "react";
 import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
 import ForgotPasswordPage from "@components/modules/ForgotPasswordPage/ForgotPasswordPage";
 
-const SignIn: NextPage = () => {
+const ForgotPassword: NextPage = () => {
   return (
     <AuthLayout title="Forgot Password">
       <ForgotPasswordPage />
@@ -12,4 +12,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

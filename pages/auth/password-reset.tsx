@@ -4,7 +4,7 @@ import React from "react";
 import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
 import PasswordResetPage from "@components/modules/PasswordResetPage/PasswordResetPage";
 
-const SignIn: NextPage = () => {
+const PasswordReset: NextPage = () => {
   return (
     <AuthLayout title="Password Reset">
       <PasswordResetPage />
@@ -12,4 +12,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default PasswordReset;

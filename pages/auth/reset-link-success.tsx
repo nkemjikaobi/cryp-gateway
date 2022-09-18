@@ -4,7 +4,7 @@ import React from "react";
 import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
 import ResetLinkSuccessPage from "@components/modules/ResetLinkSuccessPage/ResetLinkSuccessPage";
 
-const SignIn: NextPage = () => {
+const ResetLinkSuccess: NextPage = () => {
   return (
     <AuthLayout title="Reset Link Success">
       <ResetLinkSuccessPage />
@@ -12,4 +12,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default ResetLinkSuccess;

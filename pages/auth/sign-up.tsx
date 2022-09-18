@@ -4,7 +4,7 @@ import React from "react";
 import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
 import SignUpPage from "@components/modules/SignUpPage/SignUpPage";
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   return (
     <AuthLayout title="Sign Up">
       <SignUpPage />
@@ -12,4 +12,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default SignUp;
