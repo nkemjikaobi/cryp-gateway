@@ -9,7 +9,7 @@ import TradeAndAccept from "@components/organisms/LandingPage/TradeAndAccept/Tra
 
 const HomePage = () => {
   return (
-    <div className="bg-[#F6F6F6] text-black">
+    <div className="bg-crypGray-50 text-black">
       <div className="max-w-[90rem] mx-auto">
         <Building />
         <AcceptPayments />

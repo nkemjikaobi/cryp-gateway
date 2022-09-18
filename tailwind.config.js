@@ -36,9 +36,11 @@ module.exports = {
       },
       colors: {
         crypGray: {
+          50: "#F6F6F6",
           100: "#FAFBFC",
           200: "#C5C9CD",
           250: "#242424",
+          300: "#1E1E1E",
         },
         glass: {
           100: "rgba(255, 255, 255, 0.2)",
