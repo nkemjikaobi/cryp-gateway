@@ -2,8 +2,10 @@ import React from "react";
 
 import Icon from "@components/atoms/Icons";
 
+import RecentTransactions from "../RecentTransactions/RecentTransactions";
 import WalletBalance from "../WalletBalance/WalletBalance";
 import WalletDoughnutCharts from "../WalletDoughnutCharts/WalletDoughnutCharts";
+import WalletGrowth from "../WalletGrowth/WalletGrowth";
 
 const Overview = () => {
   return (
@@ -12,10 +14,14 @@ const Overview = () => {
         <Icon className="cursor-pointer" name="bell" />
         <div className="w-[2.375rem] h-[2.375rem] rounded-full bg-profilePic bg-cover bg-center bg-no-repeat" />
       </div>
-      <div className="flex items-center justify-between pt-[9.188rem] divide- h-[18.688re] px-[3.25rem]">
+      <div className="flex items-center justify-between pt-[9.188rem] px-[3.25rem]">
         <WalletBalance />
         <Icon name="divider" />
         <WalletDoughnutCharts />
+      </div>
+      <div className="flex items-center justify-between pt-[9.188rem] px-[3.25rem]">
+        <WalletGrowth />
+        <RecentTransactions />
       </div>
     </div>
   );
