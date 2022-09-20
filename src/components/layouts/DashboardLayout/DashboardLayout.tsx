@@ -26,12 +26,12 @@ const DashboardLayout = ({ children, title, description, keywords, hideFooterOnM
         <meta content={keywords} name="keywords" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <section className="smallLaptop:px-0 relative overflow-x-hidden">
-        <main className="h-auto z-50 flex bg-crypGray-50">
+      <section className="smallLaptop:px-0 bg-crypGray-50 relative overflow-x-hidden">
+        <main className="h-auto z-50 flex">
           <div>
             <DashboardSideBar />
           </div>
-          <div>{children}</div>
+          <div className="w-full">{children}</div>
         </main>
         {showFooter && (
           <>

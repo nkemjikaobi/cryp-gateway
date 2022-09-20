@@ -67,6 +67,7 @@ module.exports = {
           200: "#A7EDEA",
         },
         crypRed: {
+          400: "#B21D1D",
           500: "#D62E2E",
         },
       },
@@ -80,6 +81,7 @@ module.exports = {
         learn3: "url('/images/learn/learn3.png')",
         authDoodles: "url('/images/auth/auth-screen-doodles.png')",
         authDoodlesMobile: "url('/images/auth/doodles-mobile.png')",
+        profilePic: "url('/images/dashboard/profile-pic.png')",
       },
       boxShadow: {
         acceptPayment: "0px 20px 40px rgba(156, 197, 195, 0.3)",
