@@ -5,7 +5,6 @@ import CustomInput from "@components/atoms/CustomInput/CustomInput";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import SecurityQuestion from "@components/organisms/modals/SecurityQuestion/SecurityQuestion";
-import SocialLogin from "@components/organisms/SocialLogin/SocialLogin";
 
 import { ButtonProperties } from "@shared/libs/helpers";
 
@@ -38,6 +37,7 @@ const Login = () => {
             id="date"
             inputClassName="placeholder:text-xs mobileBelow:ml-4 border-black"
             name="arrivalTime"
+            placeholder="Enter your password"
             type="password"
           />
           <CustomLink customClass="absolute right-0 text-crypGreen-800 text-14 tablet:text-base" destination="/auth/forgot-password">
@@ -52,9 +52,9 @@ const Login = () => {
             title="SIGN ME IN"
             variant={ButtonProperties.VARIANT.primary.name}
           />
-          <p className="font-semibold">or Sign in with</p>
+          {/* <p className="font-semibold">or Sign in with</p> */}
         </div>
-        <SocialLogin />
+        {/* <SocialLogin /> */}
       </div>
       <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
         <SecurityQuestion />

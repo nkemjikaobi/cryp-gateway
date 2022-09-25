@@ -21,7 +21,7 @@ const UploadDocuments = ({ step }: UserDetailsProps) => {
   return (
     <>
       <h3 className="text-16 tablet:text-20 font-semibold">Document Upload</h3>
-      <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">Help us know you better, to serve you better</div>
+      <div className="flex items-center mt-[2.313rem] mb-[1.563rem] text-14 tablet:text-18 font-medium">Help us know you better, to serve you better</div>
       <div className="relative space-y-[2.313rem]">
         <DatePicker
           customInput={

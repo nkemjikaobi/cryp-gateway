@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.growth {
+  font-size: calc(10px + 2vmin);
+  width: 65%;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }

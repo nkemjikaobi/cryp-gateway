@@ -5,7 +5,6 @@ import CustomCheckBox from "@components/atoms/CustomCheckBox/CustomCheckBox";
 import CustomInput from "@components/atoms/CustomInput/CustomInput";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
-import SocialLogin from "@components/organisms/SocialLogin/SocialLogin";
 
 import { ButtonProperties } from "@shared/libs/helpers";
 
@@ -93,9 +92,9 @@ const UserDetails = ({ step }: UserDetailsProps) => {
           title="REGISTER ME"
           variant={ButtonProperties.VARIANT.primary.name}
         />
-        <p className="font-semibold">or register with</p>
+        {/* <p className="font-semibold">or register with</p> */}
       </div>
-      <SocialLogin />
+      {/* <SocialLogin /> */}
     </>
   );
 };

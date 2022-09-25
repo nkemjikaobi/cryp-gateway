@@ -16,23 +16,24 @@ const WalletDoughnutCharts = () => {
     ],
   };
 
-  // const options = {
-  //   plugins: {
-  //     legend: {
-  //       position: "right",
-  //       rtl: true,
-  //       labels: {
-  //         usePointStyle: true,
-  //         pointStyle: "circle",
-  //         padding: 20,
-  //       },
-  //     },
-  //   },
-  // };
+  const options: any = {
+    // plugins: {
+    //   legend: {
+    //     position: "right",
+    //     rtl: true,
+    //     labels: {
+    //       usePointStyle: true,
+    //       pointStyle: "circle",
+    //       padding: 20,
+    //     },
+    //   },
+    // },
+    plugins: { legend: { display: true, position: "bottom" } },
+  };
 
   return (
     <div>
-      <Doughnut data={data} />
+      <Doughnut data={data} options={options} />
     </div>
   );
 };

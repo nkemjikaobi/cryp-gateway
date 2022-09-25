@@ -9,7 +9,7 @@ const NoTransaction = () => {
       <div className="flex items-center justify-center">
         <Image height={218} src={NoTransactions} width={334} />
       </div>
-      <p className="pt-[42px] pb-[97px] px-[86px] text-14 font-medium">No coins rolling in your transactions yet.</p>
+      <p className="pt-[2.625rem] pb-[6.063rem] px-[5.375rem] text-14 font-medium">No coins rolling in your transactions yet.</p>
     </>
   );
 };

@@ -35,13 +35,13 @@ const DashboardSideBarData = [
     route: "/dashboard/payments",
   },
   {
-    id: 1,
+    id: 2,
     name: "nft storefront",
     icon: "chest",
     route: "/dashboard/nft-storefront",
   },
   {
-    id: 1,
+    id: 3,
     name: "crypto market",
     icon: "activity",
     route: "/dashboard/crypto-market",

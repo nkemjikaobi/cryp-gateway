@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import Icon from "@components/atoms/Icons";
@@ -6,6 +6,7 @@ import Icon from "@components/atoms/Icons";
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const WalletBalance = () => {
+  const [isBalanceHidden, setIsBalanceHidden] = useState<boolean>(false);
   return (
     <div>
       <div className="flex items-center space-x-[3.563rem] mb-[3.063rem] w-[28.25rem]">
@@ -22,8 +23,12 @@ const WalletBalance = () => {
             </div>
           </div>
           <div className="flex items-center justify-between space-x-[16.625rem]">
-            <h2 className="text-30 font-extrabold text-crypGreen-800 mt-[0.875rem] mb-[1.375rem]">cpUSD 0.00</h2>
-            <Icon name="eye" />
+            <h2 className="text-30 font-extrabold text-crypGreen-800 mt-[0.875rem] mb-[1.375rem]">{isBalanceHidden ? "* * * *" : "cpUSD 3,000,000.00"}</h2>
+            {isBalanceHidden ? (
+              <Icon className="cursor-pointer" name="lashes" onClick={() => setIsBalanceHidden(false)} />
+            ) : (
+              <Icon className="cursor-pointer" name="eye" onClick={() => setIsBalanceHidden(true)} />
+            )}
           </div>
           <p className="text-14 font-semibold text-crypRed-400 mb-16">cpUSD 0.00 pending</p>
         </div>
