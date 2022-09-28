@@ -5,6 +5,8 @@
 .growth {
   font-size: calc(10px + 2vmin);
   width: 65%;
+  height: 29.375rem;
+  margin-right: 1.188rem;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

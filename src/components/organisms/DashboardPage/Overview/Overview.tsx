@@ -19,9 +19,12 @@ const Overview = () => {
         <Icon name="divider" />
         <WalletDoughnutCharts />
       </div>
-      <div className="flex items-center justify-between pt-[9.188rem] px-[3.25rem]">
-        <WalletGrowth />
-        <RecentTransactions />
+      <div className=" pt-[9.188rem]">
+        <h5 className="text-18 font-bold text-crypGreen-800 mb-2">Growth</h5>
+        <div className="flex items-center justify-between">
+          <WalletGrowth />
+          <RecentTransactions />
+        </div>
       </div>
     </div>
   );

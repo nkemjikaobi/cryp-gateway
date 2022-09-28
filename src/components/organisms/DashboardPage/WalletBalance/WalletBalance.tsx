@@ -13,7 +13,7 @@ const WalletBalance = () => {
         <h4 className="uppercase text-14 text-crypYellow-200 font-extrabold">cryp tokens</h4>
         <Icon name="yellowDropDown" />
       </div>
-      <div className="flex items-center justify-between">
+      <div className="">
         <div>
           <div className="flex items-center justify-between text-14 font-semibold space-x-[14.938rem]">
             <h4 className="uppercase ">total cryp balance</h4>
@@ -23,7 +23,9 @@ const WalletBalance = () => {
             </div>
           </div>
           <div className="flex items-center justify-between space-x-[16.625rem]">
-            <h2 className="text-30 font-extrabold text-crypGreen-800 mt-[0.875rem] mb-[1.375rem]">{isBalanceHidden ? "* * * *" : "cpUSD 3,000,000.00"}</h2>
+            <h2 className="text-30 font-extrabold text-crypGreen-800 mt-[0.875rem] mb-[1.375rem]">
+              {isBalanceHidden ? "*".repeat("cpUSD 4,000.00".length) : "cpUSD 34,000,000.00"}
+            </h2>
             {isBalanceHidden ? (
               <Icon className="cursor-pointer" name="lashes" onClick={() => setIsBalanceHidden(false)} />
             ) : (
@@ -35,7 +37,7 @@ const WalletBalance = () => {
       </div>
       <div className="flex items-center space-x-[1.438rem]">
         <CustomButton
-          customClass="!w-full font-14 rounded-md uppercase h-[2.75rem] text-black"
+          customClass="font-14 rounded-md w-[8.313rem] uppercase h-[2.75rem] text-black"
           handleClick={() => {}}
           size={ButtonProperties.SIZES.small}
           title="receive"
@@ -43,7 +45,7 @@ const WalletBalance = () => {
           variant={ButtonProperties.VARIANT.primary.name}
         />
         <CustomButton
-          customClass="!w-full font-14 rounded-md uppercase h-[2.75rem] text-black bg-crypYellow-200"
+          customClass="font-14 rounded-md w-[8.313rem] uppercase h-[2.75rem] text-black bg-crypYellow-200"
           handleClick={() => {}}
           size={ButtonProperties.SIZES.small}
           title="withdraw"
@@ -51,7 +53,7 @@ const WalletBalance = () => {
           variant={ButtonProperties.VARIANT.primary.name}
         />
         <CustomButton
-          customClass="!w-full font-14 rounded-md uppercase h-[2.75rem] text-black !bg-crypGreen-70"
+          customClass="font-14 rounded-md uppercase w-[8.313rem] h-[2.75rem] text-black !bg-crypGreen-70"
           handleClick={() => {}}
           size={ButtonProperties.SIZES.small}
           title="convert"
