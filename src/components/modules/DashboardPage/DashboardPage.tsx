@@ -5,10 +5,10 @@ import Overview from "@components/organisms/DashboardPage/Overview/Overview";
 
 const DashboardPage = () => {
   return (
-    <div className="">
+    <>
       <Overview />
       <MobileFooter />
-    </div>
+    </>
   );
 };
 

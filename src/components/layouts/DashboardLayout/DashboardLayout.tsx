@@ -3,6 +3,7 @@ import React from "react";
 
 import { Themes } from "@shared/libs/helpers";
 
+import DashboardMobileNavigation from "../DashboardMobileNavigation/DashboardMobileNavigation";
 import DashboardSideBar from "../DashboardSideBar/DashboardSideBar";
 import DesktopFooter from "../DesktopFooter/DesktopFooter";
 import MobileFooter from "../MobileFooter/MobileFooter";
@@ -28,10 +29,15 @@ const DashboardLayout = ({ children, title, description, keywords, hideFooterOnM
       </Head>
       <section className="smallLaptop:px-0 bg-crypGray-50 relative overflow-x-hidden">
         <main className="h-auto z-50 flex">
-          <div>
+          <div className="hidden smallLaptop:block">
             <DashboardSideBar />
           </div>
-          <div className="w-full">{children}</div>
+          <div className="w-full">
+            <div className="block smallLaptop:hidden">
+              <DashboardMobileNavigation />
+            </div>
+            {children}
+          </div>
         </main>
         {showFooter && (
           <>

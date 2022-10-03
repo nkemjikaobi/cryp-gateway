@@ -32,7 +32,7 @@ const WalletDoughnutCharts = () => {
   };
 
   return (
-    <div>
+    <div className="w-[21.875rem] tablet:ml-[9.375rem] smallLaptop:ml-0 smallLaptop:w-auto">
       <Doughnut data={data} options={options} />
     </div>
   );

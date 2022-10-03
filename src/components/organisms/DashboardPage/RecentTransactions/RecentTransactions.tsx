@@ -7,15 +7,15 @@ import TransactionItem from "./TransactionItem";
 
 const RecentTransactions = () => {
   return (
-    <div className="bg-white w-[27rem] h-[29.375rem] pt-8 rounded-[1.25rem] overflow-y-scroll">
-      <div className="flex items-center justify-between pl-[2.188rem] pr-[0.625rem] pb-[2.438rem]">
-        <h5 className="text-18 font-bold text-crypGreen-800">Recent Transactions</h5>
+    <div className="bg-white smallLaptop:w-[27rem] h-[29.375rem] smallLaptop:pt-8 rounded-[1.25rem] overflow-y-scroll">
+      <div className="flex items-center justify-between pl-4 smallLaptop:pl-[2.188rem] pr-[4.625rem] smallLaptop:pr-[0.625rem] pb-[2.438rem]">
+        <h5 className="text-14 smallLaptop:text-18 font-bold text-crypGreen-800">Recent Transactions</h5>
         <div className="flex items-center space-x-[0.625rem]">
-          <h5 className="text-crypGreen-800">This Month</h5>
+          <h5 className="text-crypGreen-800 text-12 smallLaptop:text-base">This Month</h5>
           <Icon className="w-[0.813rem] h-[2.438rem]" name="yellowDropDown" />
         </div>
       </div>
-      <div className=" pl-[2.188rem] pr-[0.625rem]">
+      <div className="pl-4 smallLaptop:pl-[2.188rem] pr-[0.625rem]">
         {TransactionsData.map((transaction) => (
           <TransactionItem key={transaction.id} transaction={transaction} />
         ))}
