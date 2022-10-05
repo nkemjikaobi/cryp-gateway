@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
@@ -7,6 +8,8 @@ import { ButtonProperties } from "@shared/libs/helpers";
 
 const WalletBalance = () => {
   const [isBalanceHidden, setIsBalanceHidden] = useState<boolean>(false);
+  const router = useRouter();
+
   return (
     <div className="bg-white rounded-[25px] p-[1rem] flex flex-col my-[1.25rem] justify-center items-center smallLaptop:block  smallLaptop:rounded-none">
       <div className="hidden smallLaptop:flex items-center space-x-[3.563rem] mb-[3.063rem] w-[28.25rem] ">
@@ -42,23 +45,23 @@ const WalletBalance = () => {
       <div className="hidden smallLaptop:block">
         <div className="flex items-center space-x-[1.438rem]">
           <CustomButton
-            customClass="font-14 rounded-md w-[8.313rem] uppercase h-[2.75rem] text-black"
-            handleClick={() => {}}
+            customClass="w-[8.313rem] uppercase h-[2.75rem] text-black !border-crypGreen-500 !bg-crypGreen-500 hover:!bg-crypGreen-800"
+            handleClick={() => router.push("/dashboard/invoice")}
             size={ButtonProperties.SIZES.small}
             title="receive"
             type="submit"
             variant={ButtonProperties.VARIANT.primary.name}
           />
           <CustomButton
-            customClass="font-14 rounded-md w-[8.313rem] uppercase h-[2.75rem] text-black bg-crypYellow-200"
+            customClass="w-[8.313rem] uppercase h-[2.75rem] text-black"
             handleClick={() => {}}
             size={ButtonProperties.SIZES.small}
             title="withdraw"
             type="submit"
-            variant={ButtonProperties.VARIANT.primary.name}
+            variant={ButtonProperties.VARIANT.accent.name}
           />
           <CustomButton
-            customClass="font-14 rounded-md uppercase w-[8.313rem] h-[2.75rem] text-black !bg-crypGreen-70"
+            customClass="w-[8.313rem] uppercase h-[2.75rem] text-black border-crypGreen-70 !bg-crypGreen-70  hover:!bg-crypGreen-60"
             handleClick={() => {}}
             size={ButtonProperties.SIZES.small}
             title="convert"
@@ -71,7 +74,7 @@ const WalletBalance = () => {
         <div className="flex items-center space-x-[1.438rem]">
           {WalletBalanceActions.map((wallet) => (
             <div className="flex flex-col items-center" key={wallet.id}>
-              <Icon className="" name={wallet.icon} />
+              <Icon className="" name={wallet.icon} onClick={() => router.push(wallet.route)} />
               <h5 className="uppercase text-12 font-semibold">{wallet.name}</h5>
             </div>
           ))}
@@ -88,15 +91,18 @@ const WalletBalanceActions = [
     id: 1,
     icon: "receive",
     name: "receive",
+    route: "/dashboard/invoice",
   },
   {
     id: 2,
     icon: "withdraw",
     name: "withdraw",
+    route: "",
   },
   {
     id: 3,
     icon: "convert",
     name: "convert",
+    route: "",
   },
 ];

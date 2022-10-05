@@ -36,6 +36,8 @@
           "/^@layouts/",
           "/^@modules/",
           "/^@images/",
+          "/^@skeletons/",
+          "/^@modals/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }

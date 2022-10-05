@@ -76,6 +76,10 @@ module.exports = {
           400: "#B21D1D",
           500: "#D62E2E",
         },
+        crypBlue: {
+          200: "#EAF2FB",
+          300: "#8DCFFF",
+        },
       },
       width: {
         600: "600px",

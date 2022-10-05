@@ -30,7 +30,9 @@
       "@organisms/*": ["src/components/organisms/*"],
       "@layouts/*": ["src/components/layouts/*"],
       "@modules/*": ["src/modules/*"],
-      "@images/*": ["public/images/*"]
+      "@images/*": ["public/images/*"],
+      "@skeletons/*": ["src/skeletons/*"],
+      "@modals/*": ["src/skeletons/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
