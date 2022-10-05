@@ -33,14 +33,7 @@ const SecurityQuestion = () => {
           </CustomLink>
         </div>
         <div className="bg-citiBlue-200 text-center mt-[3.688rem] tablet:mt-24 rounded-md w-[10.25rem] tablet:w-[8.809rem] ml-[20%] tablet:ml-[30%]">
-          <CustomButton
-            customClass="!w-full font-14 rounded-md uppercase h-[3.75rem] tablet:h-[3.671rem]"
-            handleClick={() => {}}
-            size={ButtonProperties.SIZES.medium}
-            title="continue"
-            type="submit"
-            variant={ButtonProperties.VARIANT.primary.name}
-          />
+          <CustomButton handleClick={() => {}} size={ButtonProperties.SIZES.big} title="continue" type="submit" variant={ButtonProperties.VARIANT.primary.name} />
         </div>
       </div>
     </div>

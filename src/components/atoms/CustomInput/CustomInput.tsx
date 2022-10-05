@@ -62,6 +62,7 @@ const CustomInput = ({
           <input
             aria-label={name}
             className={`${inputClassName} focus:outline-none border-none focus:ring-0 autofill:shadow-reset-bg autofill:hover:shadow-reset-bg autofill:focus:shadow-reset-bg autofill:active:shadow-reset-bg h-full w-full`}
+            defaultValue={value}
             disabled={disabled}
             name={name}
             onChange={onChange}
@@ -71,7 +72,6 @@ const CustomInput = ({
             required={required}
             tabIndex={0}
             type={type === "password" && showPassword ? "text" : type}
-            value={value}
             {...otherProps}
           />
           {icon && iconPosition === "end" && <Icon className={iconClass} name={icon} />}

@@ -86,9 +86,9 @@ const UserDetails = ({ step }: UserDetailsProps) => {
       </div>
       <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
         <CustomButton
-          customClass="px-4 text-12 tablet:text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
+          customClass="mt-12"
           handleClick={() => step.goNextStep()}
-          size={ButtonProperties.SIZES.medium}
+          size={ButtonProperties.SIZES.big}
           title="REGISTER ME"
           variant={ButtonProperties.VARIANT.primary.name}
         />

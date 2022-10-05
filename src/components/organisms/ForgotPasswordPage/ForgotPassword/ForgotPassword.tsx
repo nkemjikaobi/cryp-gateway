@@ -25,9 +25,9 @@ const ForgotPassword = () => {
         </div>
         <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center tablet:mb-[5.719rem]">
           <CustomButton
-            customClass="px-4 w-[14.375rem] text-12 tablet:text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
+            customClass="mt-12"
             handleClick={() => router.push("/auth/reset-link-success")}
-            size={ButtonProperties.SIZES.medium}
+            size={ButtonProperties.SIZES.big}
             title="SEND RESET LINK"
             variant={ButtonProperties.VARIANT.primary.name}
           />

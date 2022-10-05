@@ -48,13 +48,7 @@ const ThankYou = ({ setThankYou }: ThankYouProps) => {
         ))}
       </div> */}
       <div className="flex justify-center items-center mb-8 opacity-95">
-        <CustomButton
-          customClass="mt-12 w-[10.25rem] h-[3.75] bigLaptop:h-[5rem] bigLaptop:w-[12rem]"
-          handleClick={handleJoinCommunity}
-          size={ButtonProperties.SIZES.small}
-          title="JOIN COMMUNITY"
-          variant={ButtonProperties.VARIANT.primary.name}
-        />
+        <CustomButton handleClick={handleJoinCommunity} size={ButtonProperties.SIZES.small} title="JOIN COMMUNITY" variant={ButtonProperties.VARIANT.primary.name} />
       </div>
     </div>
   );

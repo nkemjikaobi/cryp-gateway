@@ -1,7 +1,6 @@
 import React from "react";
 
-import CustomLink from "@components/atoms/CustomLink/CustomLink";
-import Icon from "@components/atoms/Icons";
+import CustomButton from "@components/atoms/CustomButton/CustomButton";
 
 const Sessions = () => {
   const handleClick = (videoUrl: string) => {
@@ -18,9 +17,7 @@ const Sessions = () => {
           >
             <div className="h-[4.875rem] tablet:h-[8.75rem] bg-glass-100 pl-[0.813rem] absolute bottom-0 text-white left-0 rounded-b-[0.75rem] rounded-bl-[0.75rem]  backdrop-blur-[6.25rem] w-full flex flex-col justify-center">
               <h3 className="uppercase text-12 font-medium tablet:text-20 tablet:font-semibold  mb-[22px]">{session.title}</h3>
-              <CustomLink customClass="text-12 hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center absolute bottom-4" destination="#">
-                Watch Live Replay <Icon className="ml-4" name="yellowArrowRight" />
-              </CustomLink>
+              <CustomButton customClass="capitalize" handleClick={() => {}} isGhost={true} title="Watch Live Replay" />
             </div>
           </div>
         ))}

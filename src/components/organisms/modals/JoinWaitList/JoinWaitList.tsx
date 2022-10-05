@@ -106,7 +106,6 @@ const JoinWaitList = ({ setThankYou, setJoinWaitList }: JoinWaitListProps) => {
                 </div>
                 <div className="bg-citiBlue-200 text-center mt-16 rounded-md w-[10.25rem] tablet:w-[8.809rem] ml-[20%] tablet:ml-[30%]">
                   <CustomButton
-                    customClass="!w-full font-14 rounded-md uppercase h-[3.75rem] tablet:h-[3.671rem]"
                     handleClick={() => {}}
                     isDisabled={loading}
                     isSubmitting={loading}

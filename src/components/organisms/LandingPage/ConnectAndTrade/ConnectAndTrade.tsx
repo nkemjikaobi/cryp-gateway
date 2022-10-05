@@ -16,7 +16,7 @@ const ConnectAndTrade = () => {
           Individual or Merchant, empower your business today with Cryp. We help you make sense of your everyday web payments.
         </p>
         <CustomButton
-          customClass="border-[#388F88] w-[10.25rem] text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
+          customClass="mt-12"
           handleClick={() => router.push("/auth/sign-up")}
           isTransparent={true}
           size={ButtonProperties.SIZES.small}

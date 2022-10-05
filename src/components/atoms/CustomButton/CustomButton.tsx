@@ -21,6 +21,7 @@ interface ButtonProps {
   iconPosition?: string;
   variant?: string;
   isTransparent?: boolean;
+  isGhost?: boolean;
 }
 
 /**
@@ -30,7 +31,16 @@ interface ButtonProps {
  * @return {React.Component} Button component
  */
 const renderContent = (title: string | undefined, isSubmitting: boolean | undefined) => (
-  <Fragment>{isSubmitting ? <ImSpinner9 className="animate-spin" /> : <Fragment>{title}</Fragment>}</Fragment>
+  <Fragment>
+    {isSubmitting ? (
+      <>
+        <ImSpinner9 className="animate-spin mr-2" />
+        <Fragment>{title}</Fragment>
+      </>
+    ) : (
+      <Fragment>{title}</Fragment>
+    )}
+  </Fragment>
 );
 
 const CustomButton = ({
@@ -49,14 +59,15 @@ const CustomButton = ({
   value,
   icon,
   iconClass,
+  isGhost,
 }: ButtonProps) => {
   const [background, setBackGround] = useState("");
   const [hover, setHover] = useState("");
   const [disabled, setDisabled] = useState("");
   const [focused, setFocused] = useState("");
   const [textColor, setTextColor] = useState("white");
-  const [borderColor, setBorderColor] = useState("");
   const [iconFill, setIconFill] = useState("");
+
   /**
    * This displays the rendered content
    */
@@ -92,7 +103,6 @@ const CustomButton = ({
         if (isTransparent) {
           setBackGround("transparent");
           setTextColor(`${ButtonProperties.VARIANT.primary.background}`);
-          setBorderColor(`${ButtonProperties.VARIANT.primary.background}`);
           setIconFill(`${ButtonProperties.VARIANT.primary.background}`);
         } else {
           setBackGround(`${ButtonProperties.VARIANT.primary.background}`);
@@ -107,7 +117,6 @@ const CustomButton = ({
         if (isTransparent) {
           setBackGround("transparent");
           setTextColor(`${ButtonProperties.VARIANT.secondary.background}`);
-          setBorderColor(`${ButtonProperties.VARIANT.secondary.background}`);
           setIconFill(`${ButtonProperties.VARIANT.secondary.background}`);
         } else {
           setBackGround(`${ButtonProperties.VARIANT.secondary.background}`);
@@ -116,6 +125,20 @@ const CustomButton = ({
         setHover(`${ButtonProperties.VARIANT.secondary.hover}`);
         setDisabled(`${ButtonProperties.VARIANT.secondary.disabled}`);
         setFocused(`${ButtonProperties.VARIANT.secondary.focused}`);
+
+        break;
+      case ButtonProperties.VARIANT.accent.name:
+        if (isTransparent) {
+          setBackGround("transparent");
+          setTextColor(`${ButtonProperties.VARIANT.accent.background}`);
+          setIconFill(`${ButtonProperties.VARIANT.accent.background}`);
+        } else {
+          setBackGround(`${ButtonProperties.VARIANT.accent.background}`);
+          setTextColor("white");
+        }
+        setHover(`${ButtonProperties.VARIANT.accent.hover}`);
+        setDisabled(`${ButtonProperties.VARIANT.accent.disabled}`);
+        setFocused(`${ButtonProperties.VARIANT.accent.focused}`);
 
         break;
     }
@@ -133,19 +156,23 @@ const CustomButton = ({
     };
   }, [variant, isTransparent, iconFill]);
 
+  const transparentStyles = `${
+    variant === ButtonProperties.VARIANT.accent.name
+      ? `border-crypYellow-200 ${!isDisabled && !isSubmitting ? "hover:text-crypYellow-400 hover:border-crypYellow-400 focus:text-crypYellow-200" : ""}`
+      : variant === ButtonProperties.VARIANT.secondary.name
+      ? `border-crypGreen-500 ${!isDisabled && !isSubmitting ? "hover:text-crypGreen-800 hover:border-crypGreen-800 focus:text-crypGreen-500" : ""} `
+      : `border-crypGreen-800 ${!isDisabled && !isSubmitting ? "hover:text-crypGreen-700 hover:border-crypGreen-700 focus:text-crypGreen-800" : ""} `
+  }`;
+  const opaqueStyles = `hover:bg-${hover} focus:bg-${focused} border-${background}`;
+  const dimensionStyles = `h-[3.75rem] tablet:h-[5rem] ${size === ButtonProperties.SIZES.small ? "w-[10.25rem] tablet:w-[12rem]" : "w-[14.375rem] tablet:w-[19.688rem]"}`;
+
   return isSubmitting || isDisabled ? (
     <button
-      className={`cursor-not-allowed rounded-lg ${isTransparent ? `text-${disabled}` : `text-${textColor}`}  ${
+      className={`cursor-not-allowed text-12 tablet:text-16  rounded-lg bg-${disabled} ${
+        isTransparent ? `text-gray-400 border-gray-400 ${transparentStyles}` : `text-${textColor}`
+      }  ${
         isTransparent && `border border-${disabled}`
-      }  whitespace-nowrap py-[16px] rounded-[4px] flex justify-center items-center h-[53px]  ${
-        size === ButtonProperties.SIZES.small
-          ? "tablet:w-[168px] px-[16px]"
-          : size === ButtonProperties.SIZES.medium
-          ? "tablet:w-[343px] px-[78px]"
-          : size === ButtonProperties.SIZES.big
-          ? "tablet:w-[427px] px-[120px]"
-          : ""
-      } ${!isTransparent && `bg-${disabled}`}  ${customClass}`}
+      }  whitespace-nowrap py-[1.938rem] px-[0.938re] rounded-[0.25rem] flex justify-center items-center ${dimensionStyles}  ${customClass}`}
       id={id}
       ref={ref}
       type={type}
@@ -153,19 +180,22 @@ const CustomButton = ({
     >
       {content}
     </button>
+  ) : isGhost ? (
+    <button
+      className={`text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center ${customClass}`}
+      id={id}
+      onClick={() => handleClick()}
+      ref={ref}
+      type={type}
+      value={value}
+    >
+      {content} <Icon className="ml-4" name="yellowArrowRight" />
+    </button>
   ) : (
     <button
-      className={`text-${textColor} font-semibold smallLaptop:font-bold rounded-[0.625rem]  hover:border-crypGreen-700 hover:bg-crypGreen-700  border ${
-        isTransparent ? `border-${borderColor}` : `border-${background}`
-      }  whitespace-nowrap py-[16px] rounded-[4px] flex justify-center items-center cursor-pointer ${
-        size === ButtonProperties.SIZES.small
-          ? "tablet:w-[192px] px-[16px]"
-          : size === ButtonProperties.SIZES.medium
-          ? "tablet:w-[343px] px-[78px]"
-          : size === ButtonProperties.SIZES.big
-          ? "tablet:w-[427px] px-[120px]"
-          : ""
-      } bg-${background} ${isTransparent ? `hover:text-${hover} hover:border-${hover} focus:text-${focused}` : `hover:bg-${hover} focus:bg-${focused}`}   ${customClass}`}
+      className={`text-${textColor} text-12 tablet:text-16 font-semibold smallLaptop:font-bold whitespace-nowrap py-[1.938rem] px-[0.938rem] rounded-[0.625rem] flex justify-center items-center cursor-pointer border ${dimensionStyles} bg-${background} ${
+        isTransparent ? `${transparentStyles}` : `${opaqueStyles}`
+      } ${customClass}`}
       id={id}
       onClick={() => handleClick()}
       ref={ref}
@@ -194,4 +224,5 @@ CustomButton.defaultProps = {
   iconPosition: ButtonProperties.ICON_POSITION.start,
   variant: ButtonProperties.VARIANT.primary,
   isTransparent: false,
+  isGhost: false,
 };

@@ -2,7 +2,6 @@ import React from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomInput from "@components/atoms/CustomInput/CustomInput";
-import Icon from "@components/atoms/Icons";
 import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
 import { ButtonProperties } from "@shared/libs/helpers";
@@ -69,19 +68,8 @@ const SecurityQuestionAndAnswer = ({ step }: UserDetailsProps) => {
         />
       </div>
       <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
-        <CustomButton
-          customClass="px-4 w-[14.375rem] text-12 tablet:text-16 h-[3.75] bigLaptop:h-[5rem] mt-12"
-          handleClick={() => {}}
-          size={ButtonProperties.SIZES.medium}
-          title="COMPLETE REGISTRATION"
-          variant={ButtonProperties.VARIANT.primary.name}
-        />
-        <button
-          className="text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center mb-12"
-          onClick={() => step.goNextStep()}
-        >
-          skip for now <Icon className="ml-4" name="yellowArrowRight" />
-        </button>
+        <CustomButton customClass="mt-4" handleClick={() => {}} size={ButtonProperties.SIZES.big} title="COMPLETE REGISTRATION" variant={ButtonProperties.VARIANT.primary.name} />
+        <CustomButton customClass="capitalize" handleClick={() => step.goNextStep()} isGhost={true} title="skip for now" />
       </div>
     </>
   );

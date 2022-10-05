@@ -3,6 +3,7 @@ module.exports = {
   safelist: [
     {
       pattern: /bg-/,
+      variants: ["hover", "focus"],
     },
   ],
   theme: {
@@ -53,6 +54,7 @@ module.exports = {
         },
         crypGreen: {
           50: "#E7FFFE",
+          60: "#BBF4F2",
           70: "#A7EDEA",
           100: "#AFEE6E4",
           500: "#6ED7D3",
@@ -61,8 +63,11 @@ module.exports = {
           800: "#388F88",
         },
         crypYellow: {
+          60: "#F8E8BE",
+          70: "#F2DA99",
           200: "#F4CA64",
           300: "#80631C",
+          400: "#C29E39",
         },
         crypMix: {
           200: "#A7EDEA",
