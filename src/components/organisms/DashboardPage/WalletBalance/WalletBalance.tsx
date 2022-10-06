@@ -54,7 +54,7 @@ const WalletBalance = () => {
           />
           <CustomButton
             customClass="w-[8.313rem] uppercase h-[2.75rem] text-black"
-            handleClick={() => {}}
+            handleClick={() => router.push("/dashboard/withdraw")}
             size={ButtonProperties.SIZES.small}
             title="withdraw"
             type="submit"
@@ -97,7 +97,7 @@ const WalletBalanceActions = [
     id: 2,
     icon: "withdraw",
     name: "withdraw",
-    route: "",
+    route: "/dashboard/withdraw",
   },
   {
     id: 3,
