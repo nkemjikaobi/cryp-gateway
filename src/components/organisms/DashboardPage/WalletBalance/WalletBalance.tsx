@@ -60,14 +60,14 @@ const WalletBalance = () => {
             type="submit"
             variant={ButtonProperties.VARIANT.accent.name}
           />
-          <CustomButton
+          {/* <CustomButton
             customClass="w-[8.313rem] uppercase h-[2.75rem] text-black border-crypGreen-70 !bg-crypGreen-70  hover:!bg-crypGreen-60"
             handleClick={() => {}}
             size={ButtonProperties.SIZES.small}
             title="convert"
             type="submit"
             variant={ButtonProperties.VARIANT.primary.name}
-          />
+          /> */}
         </div>
       </div>
       <div className="block smallLaptop:hidden">

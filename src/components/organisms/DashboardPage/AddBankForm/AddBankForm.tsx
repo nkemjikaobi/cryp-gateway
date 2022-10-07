@@ -1,5 +1,7 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomInput from "@components/atoms/CustomInput/CustomInput";
@@ -10,10 +12,24 @@ import InputTransactionPin from "@components/organisms/modals/InputTransactionPi
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const AddBankForm = () => {
-  const [confirmPin, setConfirmPin] = useState<boolean>(true);
+  const [confirmPin, setConfirmPin] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const addBank = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      router.push("/dashboard/withdraw");
+      toast.success("Bank account added successfully!");
+    }, 3000);
+  };
+
   return (
     <>
       <div className="bg-white w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto rounded-[3.125rem] shadow-auth px-4 smallLaptop:px-6 mt-[4rem] smallLaptop:mt-[6.5rem] mb-32 text-12 smallLaptop:text-16">
+        <Toaster position="top-center" />
         <div className="relative">
           <>
             <CustomLabel className="mb-[0.438rem]" title="Your Name" />
@@ -39,7 +55,7 @@ const AddBankForm = () => {
         </div>
       </div>
       <CustomModal toggleVisibility={setConfirmPin} visibility={confirmPin}>
-        <InputTransactionPin />
+        <InputTransactionPin callBack={addBank} loader={loading} />
       </CustomModal>
     </>
   );

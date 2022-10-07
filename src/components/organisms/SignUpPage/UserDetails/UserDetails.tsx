@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomCheckBox from "@components/atoms/CustomCheckBox/CustomCheckBox";
@@ -7,11 +8,14 @@ import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
 import { ButtonProperties } from "@shared/libs/helpers";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface UserDetailsProps {
   step: StepProps;
 }
 const UserDetails = ({ step }: UserDetailsProps) => {
+  const [departureDate, setDepartureDate] = useState<Date | null>(null);
+
   return (
     <>
       <h3 className="text-16 tablet:text-20 font-semibold">
@@ -23,13 +27,14 @@ const UserDetails = ({ step }: UserDetailsProps) => {
           <CustomLink destination="/auth/sign-in">Sign in</CustomLink>
         </span>
       </div>
+      <div className="flex text-crypRed-500 items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">*All fields are required</div>
       <div className="relative">
         <CustomInput
           className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
           container="tablet:px-6"
           inputClassName="placeholder:text-xs border-black"
           name="username"
-          placeholder="Enter Business Name"
+          placeholder="Enter First Name"
           type="text"
         />
         <CustomInput
@@ -37,8 +42,8 @@ const UserDetails = ({ step }: UserDetailsProps) => {
           container="tablet:px-6"
           inputClassName="placeholder:text-xs border-black"
           name="username"
-          placeholder="Enter Phone Number"
-          type="tel"
+          placeholder="Enter Last Name"
+          type="text"
         />
         <CustomInput
           className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
@@ -53,11 +58,40 @@ const UserDetails = ({ step }: UserDetailsProps) => {
           container="tablet:px-6"
           inputClassName="placeholder:text-xs border-black"
           name="username"
+          placeholder="Enter Phone Number"
+          type="tel"
+        />
+
+        <DatePicker
+          customInput={
+            <CustomInput
+              className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
+              container="!pl-0 !pr-[0.3rem]"
+              icon="calendar2"
+              iconPosition="end"
+              id="date"
+              inputClassName="placeholder:text-xs mobileBelow:ml-4 border-black bg-citiBlue-80"
+              name="arrivalTime"
+              type="text"
+            />
+          }
+          dateFormat="yyyy-MM-dd"
+          minDate={new Date()}
+          onChange={(date: Date) => setDepartureDate(date)}
+          placeholderText="Date of Birth"
+          selected={departureDate}
+        />
+
+        <CustomInput
+          className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
+          container="tablet:px-6"
+          inputClassName="placeholder:text-xs border-black"
+          name="username"
           placeholder="Enter Username"
           type="text"
         />
         <CustomInput
-          className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-4"
+          className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
           container="px-6"
           iconPosition="end"
           inputClassName="placeholder:text-xs mobileBelow:ml-4 border-black"
@@ -66,7 +100,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
           type="password"
         />
         <CustomInput
-          className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-4"
+          className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
           container="px-6"
           iconPosition="end"
           inputClassName="placeholder:text-xs mobileBelow:ml-4 border-black"

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
@@ -10,6 +11,7 @@ interface UserDetailsProps {
   step: StepProps;
 }
 const SecurityQuestionAndAnswer = ({ step }: UserDetailsProps) => {
+  const router = useRouter();
   return (
     <>
       <h3 className="text-16 tablet:text-20 font-semibold">Security Question and Answer</h3>
@@ -68,7 +70,13 @@ const SecurityQuestionAndAnswer = ({ step }: UserDetailsProps) => {
         />
       </div>
       <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
-        <CustomButton customClass="mt-4" handleClick={() => {}} size={ButtonProperties.SIZES.big} title="COMPLETE REGISTRATION" variant={ButtonProperties.VARIANT.primary.name} />
+        <CustomButton
+          customClass="mt-4"
+          handleClick={() => router.push("/auth/registration-success")}
+          size={ButtonProperties.SIZES.big}
+          title="COMPLETE REGISTRATION"
+          variant={ButtonProperties.VARIANT.primary.name}
+        />
         <CustomButton customClass="capitalize" handleClick={() => step.goNextStep()} isGhost={true} title="skip for now" />
       </div>
     </>

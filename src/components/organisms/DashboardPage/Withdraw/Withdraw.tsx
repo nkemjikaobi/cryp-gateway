@@ -1,11 +1,13 @@
 import React from "react";
 
-import NoBankAccounts from "../NoBankAccounts/NoBankAccounts";
+import BankAccounts from "../BankAccounts/BankAccounts";
+// import NoBankAccounts from "../NoBankAccounts/NoBankAccounts";
 
 const Withdraw = () => {
   return (
     <>
-      <NoBankAccounts />
+      {/* <NoBankAccounts /> */}
+      <BankAccounts />
     </>
   );
 };
