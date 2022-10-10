@@ -165,3 +165,15 @@ export const Themes = {
  * @return {Object} Sanitized content
  */
 export const getSanitizedHtml = (content: string) => ({ __html: content });
+
+/**
+ * Method to subtract years from a particular date
+ * @param {number} numOfYears
+ * @param {date} date
+ * @return {date}
+ */
+export const subtractYears = (numOfYears: number, date = new Date()) => {
+  date.setFullYear(date.getFullYear() - numOfYears);
+
+  return date;
+};

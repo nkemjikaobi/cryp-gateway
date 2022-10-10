@@ -37,7 +37,7 @@ const FormikCustomInput = ({ className, container, type, iconClass, iconPosition
 
           {icon && iconPosition === "end" && <Icon className={iconClass} name={icon} />}
           {type === "password" && showPassword ? (
-            <Icon className="cursor-pointer" name="eyeSlash" onClick={handleShowPassword} />
+            <Icon className="cursor-pointer" name="eye" onClick={handleShowPassword} />
           ) : (
             type === "password" && !showPassword && <Icon className="cursor-pointer" name="lashes" onClick={handleShowPassword} />
           )}

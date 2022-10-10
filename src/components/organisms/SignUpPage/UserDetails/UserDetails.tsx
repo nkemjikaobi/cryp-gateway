@@ -13,7 +13,7 @@ import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
-import { ButtonProperties, errorMessages } from "@shared/libs/helpers";
+import { ButtonProperties, errorMessages, subtractYears } from "@shared/libs/helpers";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -60,7 +60,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
       .required(errorMessages.required)
       .min(8, errorMessages.minChar(8))
       .minLowercase(1, errorMessages.minLowerCase(1))
-      .minUppercase(1, errorMessages.minUpperCase(2))
+      .minUppercase(1, errorMessages.minUpperCase(1))
       .minNumbers(1, errorMessages.minNumber(1))
       .minSymbols(1, errorMessages.minSymbol(1)),
     confirmPassword: Yup.string()
@@ -121,7 +121,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
                 customInput={
                   <CustomInput
                     className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"
-                    container="!pl-0 !pr-[0.3rem]"
+                    container=""
                     icon="calendar2"
                     iconPosition="end"
                     id="date"
@@ -131,11 +131,13 @@ const UserDetails = ({ step }: UserDetailsProps) => {
                   />
                 }
                 dateFormat="yyyy-MM-dd"
-                minDate={new Date()}
+                maxDate={subtractYears(18)}
                 name="dateOfBirth"
                 onChange={(date: Date) => setDepartureDate(date)}
                 placeholderText="Date of Birth"
                 selected={departureDate}
+                showMonthDropdown
+                showYearDropdown
               />
 
               <FormikCustomInput
