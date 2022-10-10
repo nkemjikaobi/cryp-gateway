@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import ErrorMessage from "@components/atoms/ErrorMessage";
 import Icon from "@components/atoms/Icons";
 
-const FormikCustomInput = ({ className, container, type, iconClass, disabled, icon, inputClassName, ...props }: any) => {
+import { classNames } from "@shared/libs/helpers";
+
+const FormikCustomInput = ({ className, container, type, iconClass, iconPosition, disabled, icon, inputClassName, ...props }: any) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleShowPassword = () => {
@@ -14,28 +16,35 @@ const FormikCustomInput = ({ className, container, type, iconClass, disabled, ic
   const [field, meta] = useField<{}>(props);
 
   return (
-    <>
-      <div className={` ${className} flex items-center h-[57.0.875rem] w-full ${meta.touched && meta.error ? "!border !border-b-[#A0000B] !border-x-0 !border-t-0" : ""} `}>
-        <div className={`flex px-5 bg-white text-black items-center justify-start  h-full w-full rounded-[0.313rem] border-crypGray-100 ${container}`}>
-          {icon && <Icon className={iconClass} name={icon} />}
+    <div className="mb-[1.875rem]">
+      <div
+        className={classNames(
+          "flex items-center h-[3.571rem] w-full",
+          className,
+          meta.touched && meta.error ? "!border-crypRed-500" : meta.touched && !meta.error ? "!border-crypGreen-800" : ""
+        )}
+      >
+        <div className={classNames("flex px-5 bg-white text-black items-center justify-start h-full w-full rounded-[0.313rem] border-crypGray-100", container)}>
+          {icon && iconPosition === "start" && <Icon className={iconClass} name={icon} />}
           <input
-            className={`${inputClassName} border-none focus:!border-none focus:ring-0 autofill:shadow-reset-bg autofill:hover:shadow-reset-bg autofill:focus:shadow-reset-bg autofill:active:shadow-reset-bg h-full w-full py-0 `}
+            className={`${inputClassName} focus:outline-none border-none focus:ring-0 autofill:shadow-reset-bg autofill:hover:shadow-reset-bg autofill:focus:shadow-reset-bg autofill:active:shadow-reset-bg h-full w-full`}
             disabled={disabled}
             tabIndex={0}
             type={type === "password" && showPassword ? "text" : type}
             {...field}
             {...props}
           />
+
+          {icon && iconPosition === "end" && <Icon className={iconClass} name={icon} />}
           {type === "password" && showPassword ? (
             <Icon className="cursor-pointer" name="eyeSlash" onClick={handleShowPassword} />
           ) : (
-            type === "password" && !showPassword && <Icon className="cursor-pointer" name="eye" onClick={handleShowPassword} />
+            type === "password" && !showPassword && <Icon className="cursor-pointer" name="lashes" onClick={handleShowPassword} />
           )}
         </div>
       </div>
       {meta.touched && meta.error && <ErrorMessage error={meta.error} />}
-      {/* {type === "password" && meta.error && <ErrorMessage error={meta.error} />} */}
-    </>
+    </div>
   );
 };
 

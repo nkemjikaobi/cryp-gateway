@@ -2409,7 +2409,7 @@ yocto-queue@^0.1.0:
 
 yup-password@^0.2.2:
   version "0.2.2"
-  resolved "https://registry.yarnpkg.com/yup-password/-/yup-password-0.2.2.tgz#07169da2aa246dd9e389075596175b95f7f994b9"
+  resolved "https://registry.npmjs.org/yup-password/-/yup-password-0.2.2.tgz#07169da2aa246dd9e389075596175b95f7f994b9"
   integrity sha512-2PHfqGWtbXg4OfDV7VKFIb3hyEaYgTYpEORnFqgGAYqzENWmGzWMoeGvJg2Ohmq6maTRxhJzLZpNTITrqlZTrA==
 
 yup@^0.32.11:

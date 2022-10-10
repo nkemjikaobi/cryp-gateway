@@ -32,8 +32,8 @@ const SecurityQuestion = () => {
             Forgot Security Question?
           </CustomLink>
         </div>
-        <div className="bg-citiBlue-200 text-center mt-[3.688rem] tablet:mt-24 rounded-md w-[10.25rem] tablet:w-[8.809rem] ml-[20%] tablet:ml-[30%]">
-          <CustomButton handleClick={() => {}} size={ButtonProperties.SIZES.big} title="continue" type="submit" variant={ButtonProperties.VARIANT.primary.name} />
+        <div className="bg-citiBlue-200 text-center mt-[3.688rem] tablet:mt-24 flex justify-center items-center">
+          <CustomButton handleClick={() => {}} size={ButtonProperties.SIZES.big} title="CONTINUE" type="submit" variant={ButtonProperties.VARIANT.primary.name} />
         </div>
       </div>
     </div>
