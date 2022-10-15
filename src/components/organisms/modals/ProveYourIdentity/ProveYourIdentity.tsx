@@ -8,7 +8,12 @@ import CustomLink from "@components/atoms/CustomLink/CustomLink";
 
 import { ButtonProperties } from "@shared/libs/helpers";
 
-const SecurityQuestion = () => {
+interface ProveYourIdentityProps {
+  callBack: Function;
+  loading: boolean;
+}
+
+const ProveYourIdentity: React.FC<ProveYourIdentityProps> = ({ callBack, loading }) => {
   return (
     <div className="rounded-[1.875rem] tablet:rounded-[3.125rem] h-[23rem] tablet:h-[38.188rem] mx-[1.875rem] px-[1.125rem] tablet:px-16 bg-white text-black">
       <Dialog.Title as="h4" className="pt-[1.625rem] tablet:pt-[4.313rem] text-14 tablet:text-18 font-semibold mb-[0.875rem]">
@@ -33,11 +38,18 @@ const SecurityQuestion = () => {
           </CustomLink>
         </div>
         <div className="bg-citiBlue-200 text-center mt-[3.688rem] tablet:mt-24 flex justify-center items-center">
-          <CustomButton handleClick={() => {}} size={ButtonProperties.SIZES.big} title="CONTINUE" type="submit" variant={ButtonProperties.VARIANT.primary.name} />
+          <CustomButton
+            handleClick={() => callBack()}
+            isDisabled={loading}
+            size={ButtonProperties.SIZES.big}
+            title="CONTINUE"
+            type="submit"
+            variant={ButtonProperties.VARIANT.primary.name}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default SecurityQuestion;
+export default ProveYourIdentity;

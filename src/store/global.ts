@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { WALLET_INSTANCE } from "@shared/libs/helpers";
+
 export interface GlobalState {
-  activeInstance: string;
+  walletInstance: string;
 }
 
 const initialState: GlobalState = {
-  activeInstance: "",
+  walletInstance: WALLET_INSTANCE.CRYP_TOKENS,
 };
 
 const globalState = createSlice({
@@ -13,9 +15,18 @@ const globalState = createSlice({
   initialState,
   reducers: {
     setToInitialState: () => ({ ...initialState }),
+
+    /**
+     * Function to set the wallet instance
+     * @param {GlobalState} state
+     * @param {any} action
+     */
+    modifyWalletInstance: (state: GlobalState, action: any) => {
+      state.walletInstance = action.payload;
+    },
   },
 });
 
-export const { setToInitialState } = globalState.actions;
+export const { setToInitialState, modifyWalletInstance } = globalState.actions;
 
 export default globalState.reducer;

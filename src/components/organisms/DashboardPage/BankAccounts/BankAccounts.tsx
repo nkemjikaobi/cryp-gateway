@@ -4,7 +4,6 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
-import CustomInput from "@components/atoms/CustomInput/CustomInput";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import Icon from "@components/atoms/Icons";
@@ -14,6 +13,7 @@ import InputTransactionPin from "@components/organisms/modals/InputTransactionPi
 import { ButtonProperties } from "@shared/libs/helpers";
 
 import SingleBankAccount from "../SingleBankAccount/SingleBankAccount";
+import TransactionAmount from "../TransactionAmount/TransactionAmount";
 
 const BankAccounts = () => {
   const [activeBank, setActiveBank] = useState<number>(-1);
@@ -40,16 +40,7 @@ const BankAccounts = () => {
     <>
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto">
         <Toaster position="top-center" />
-
-        <h4 className="font-semibold text-crypGreen-800 text-center py-[2.188rem]"> (CRYP Balance cUSD 400,000.00)</h4>
-        <CustomInput
-          className="border border-t-0 border-r-0 border-l-0 border-b-crypGray-400 rounded-[0.313rem] h-[3.75rem] mr-4 mb-[3.625rem]"
-          container="tablet:px-6"
-          inputClassName="placeholder:text-14 border-black placeholder:text-center"
-          name="amount"
-          placeholder="Enter amount"
-          type="number"
-        />
+        <TransactionAmount />
         <div className="flex items-center justify-between">
           <div>
             <h5>All</h5>

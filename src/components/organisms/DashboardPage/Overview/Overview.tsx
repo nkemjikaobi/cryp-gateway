@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "react-hot-toast";
 
 import Icon from "@components/atoms/Icons";
 
@@ -11,6 +12,8 @@ import WalletGrowth from "../WalletGrowth/WalletGrowth";
 const Overview = () => {
   return (
     <div className="smallLaptop:bg-white ml-[0.625rem] mr-4 smallLaptop:w-[70.688rem] television:w-full smallLaptop:h-[33.313rem] relative rounded-br-[2.5rem] rounded-bl-[2.5rem]">
+      <Toaster position="top-center" />
+
       <ProfileAndNotifications />
       <div className="smallLaptop:flex smallLaptop:items-center smallLaptop:justify-between smallLaptop:pt-[9.188rem] smallLaptop:px-[3.25rem]">
         <WalletBalance />

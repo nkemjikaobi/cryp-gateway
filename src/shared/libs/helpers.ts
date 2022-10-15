@@ -177,3 +177,13 @@ export const subtractYears = (numOfYears: number, date = new Date()) => {
 
   return date;
 };
+
+/**
+ * Wallet instances
+ */
+export const WALLET_INSTANCE = {
+  CRYP_TOKENS: "cryp_tokens",
+  OTHER_TOKENS: "other_tokens",
+};
+
+export const CPUSD = "cpUSD";

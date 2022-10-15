@@ -3,12 +3,17 @@ import React, { useState } from "react";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomInput from "@components/atoms/CustomInput/CustomInput";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
-import SecurityQuestion from "@components/organisms/modals/SecurityQuestion/SecurityQuestion";
+import ProveYourIdentity from "@components/organisms/modals/ProveYourIdentity/ProveYourIdentity";
 
 import { ButtonProperties } from "@shared/libs/helpers";
 
 const PasswordReset = () => {
   const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
+  const [loading] = useState<boolean>(false);
+
+  const callBack = () => {
+    //
+  };
 
   return (
     <>
@@ -47,7 +52,7 @@ const PasswordReset = () => {
         </div>
       </div>
       <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
-        <SecurityQuestion />
+        <ProveYourIdentity callBack={callBack} loading={loading} />
       </CustomModal>
     </>
   );

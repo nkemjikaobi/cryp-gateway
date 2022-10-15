@@ -7,13 +7,14 @@ import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
-import SecurityQuestion from "@components/organisms/modals/SecurityQuestion/SecurityQuestion";
+import ProveYourIdentity from "@components/organisms/modals/ProveYourIdentity/ProveYourIdentity";
 
 import { ButtonProperties, errorMessages } from "@shared/libs/helpers";
 yupPassword(Yup); // extend yup
 
 const Login = () => {
   const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
+  const [loading] = useState<boolean>(false);
 
   const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
     // todo
@@ -39,6 +40,10 @@ const Login = () => {
       .minNumbers(1, errorMessages.minNumber(1))
       .minSymbols(1, errorMessages.minSymbol(1)),
   });
+
+  const callBack = () => {
+    //
+  };
 
   return (
     <>
@@ -94,7 +99,7 @@ const Login = () => {
         {/* <SocialLogin /> */}
       </div>
       <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
-        <SecurityQuestion />
+        <ProveYourIdentity callBack={callBack} loading={loading} />
       </CustomModal>
     </>
   );

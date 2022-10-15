@@ -8,12 +8,27 @@ import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 import { ButtonProperties } from "@shared/libs/helpers";
 
 interface UserDetailsProps {
-  step: StepProps;
+  step?: StepProps;
+  isNotstepper?: boolean;
+  callBack?: Function;
 }
-const SecurityQuestionAndAnswer = ({ step }: UserDetailsProps) => {
+const SecurityQuestionAndAnswer = ({ step, isNotstepper, callBack }: UserDetailsProps) => {
   const router = useRouter();
+  const handleSubmit = () => {
+    if (isNotstepper) {
+      callBack && callBack();
+    } else {
+      router.push("/auth/registration-success");
+    }
+  };
   return (
-    <>
+    <div
+      className={`${
+        isNotstepper
+          ? "rounded-[1.875rem] tablet:rounded-[3.125rem] h-[23rem] tablet:h-[38.188rem] mx-[1.875rem] p-8 px-[1.125rem] overflow-y-scroll tablet:px-16 bg-white text-black"
+          : ""
+      }`}
+    >
       <h3 className="text-16 tablet:text-20 font-semibold">Security Question and Answer</h3>
       <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
         Keep your money even safer, create your own custom security questions and answers
@@ -72,15 +87,21 @@ const SecurityQuestionAndAnswer = ({ step }: UserDetailsProps) => {
       <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
         <CustomButton
           customClass="mt-4"
-          handleClick={() => router.push("/auth/registration-success")}
+          handleClick={() => handleSubmit()}
           size={ButtonProperties.SIZES.big}
-          title="COMPLETE REGISTRATION"
+          title={`${isNotstepper ? "RESET" : "COMPLETE REGISTRATION"}`}
           variant={ButtonProperties.VARIANT.primary.name}
         />
-        <CustomButton customClass="capitalize" handleClick={() => step.goNextStep()} isGhost={true} title="skip for now" />
+        {!isNotstepper && <CustomButton customClass="capitalize" handleClick={() => step?.goNextStep()} isGhost={true} title="skip for now" />}
       </div>
-    </>
+    </div>
   );
 };
 
 export default SecurityQuestionAndAnswer;
+
+SecurityQuestionAndAnswer.defaultProps = {
+  step: {},
+  isNotstepper: false,
+  callBack: () => {},
+};
