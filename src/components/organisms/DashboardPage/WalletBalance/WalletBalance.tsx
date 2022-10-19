@@ -1,41 +1,36 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { modifyWalletInstance } from "src/store/global";
+import { useSelector } from "react-redux";
 import { AppState } from "src/store/rootReducer";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import Icon from "@components/atoms/Icons";
 import ConvertToken from "@components/organisms/modals/ConvertToken/ConvertToken";
+import CopyWalletAddress from "@components/organisms/modals/CopyWalletAddress/CopyWalletAddress";
+import EnterOrPasteWalletAddress from "@components/organisms/modals/EnterOrPasteWalletAddress/EnterOrPasteWalletAddress";
+import ReceiveTokenOptions from "@components/organisms/modals/ReceiveTokenOptions/ReceiveTokenOptions";
 import SendToken from "@components/organisms/modals/SendToken/SendToken";
+import SendTokenOptions from "@components/organisms/modals/SendTokenOptions/SendTokenOptions";
 
 import { ButtonProperties, CPUSD, WALLET_INSTANCE } from "@shared/libs/helpers";
 
+import SwitchInstance from "../SwitchInstance/SwitchInstance";
+
 const WalletBalance = () => {
   const [isBalanceHidden, setIsBalanceHidden] = useState<boolean>(false);
-  const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [showSendToken, setShowSendToken] = useState<boolean>(false);
   const [showConvertToken, setShowConvertToken] = useState<boolean>(false);
+  const [showSendTokenOptions, setSendTokenOptions] = useState<boolean>(false);
+  const [showReceiveTokenOptions, setReceiveTokenOptions] = useState<boolean>(false);
+  const [showPasteAddress, setShowPasteAddress] = useState<boolean>(false);
+  const [showCopyAddress, setShowCopyAddress] = useState<boolean>(false);
   const [currency, setCurrency] = useState<string>(CPUSD);
   const [currencySymbol, setCurrencySymbol] = useState<string>(CPUSD);
   const [balance, setBalance] = useState<string>("34,000,000");
+
   const router = useRouter();
   const { walletInstance } = useSelector((state: AppState) => state.global || {});
-  const dispatch = useDispatch();
-
-  const handleToggle = () => {
-    setShowDropDown(!showDropDown);
-  };
-
-  const handleWalletInstance = () => {
-    if (walletInstance === WALLET_INSTANCE.CRYP_TOKENS) {
-      dispatch(modifyWalletInstance(WALLET_INSTANCE.OTHER_TOKENS));
-    } else {
-      dispatch(modifyWalletInstance(WALLET_INSTANCE.CRYP_TOKENS));
-    }
-    handleToggle();
-  };
 
   useEffect(() => {
     if (walletInstance === WALLET_INSTANCE.OTHER_TOKENS) {
@@ -49,26 +44,18 @@ const WalletBalance = () => {
     }
   }, [walletInstance]);
 
+  const reRouteReceive = () => {
+    if (walletInstance === WALLET_INSTANCE.CRYP_TOKENS) {
+      return router.push("/dashboard/invoice");
+    }
+    setReceiveTokenOptions(true);
+  };
+
   return (
     <>
       <div className="bg-white rounded-[1.563rem] p-[1rem] smallLaptop:p-0 flex flex-col my-[1.25rem] justify-center items-center smallLaptop:block  smallLaptop:rounded-none">
-        <div className="hidden smallLaptop:flex  items-center mb-[3.063rem] w-[28.25rem] relative">
-          <h4 className="uppercase cursor-pointer text-16 text-crypYellow-200 font-extrabold mr-[1.563rem]" onClick={handleToggle}>
-            {walletInstance === WALLET_INSTANCE.CRYP_TOKENS ? "cryp tokens" : "other coins/tokens"}
-          </h4>
-          {showDropDown ? (
-            <Icon className="cursor-pointer" name="arrowUp" onClick={handleToggle} />
-          ) : (
-            <Icon className="cursor-pointer" name="yellowDropDown" onClick={handleToggle} />
-          )}
-          {showDropDown && (
-            <div
-              className="absolute cursor-pointer hover:bg-crypGray-50 left-0 top-10 text-14 font-semibold uppercase border border-crypGray-500 w-[171px] h-[66px] flex justify-center items-center bg-white rounded-[12px]"
-              onClick={handleWalletInstance}
-            >
-              {walletInstance === WALLET_INSTANCE.CRYP_TOKENS ? "other coins/tokens" : "cryp tokens"}
-            </div>
-          )}
+        <div className="hidden smallLaptop:block">
+          <SwitchInstance />
         </div>
         <div className="">
           <div>
@@ -100,7 +87,7 @@ const WalletBalance = () => {
           <div className="flex items-center space-x-[1.438rem]">
             <CustomButton
               customClass="w-[8.313rem] uppercase h-[2.75rem] text-black !border-crypGreen-500 !bg-crypGreen-500 hover:!bg-crypGreen-800"
-              handleClick={() => router.push("/dashboard/invoice")}
+              handleClick={() => reRouteReceive()}
               size={ButtonProperties.SIZES.small}
               title="receive"
               type="submit"
@@ -138,7 +125,7 @@ const WalletBalance = () => {
         <div className="block smallLaptop:hidden">
           <div className="flex items-center space-x-[1.438rem]">
             <div className="flex flex-col items-center">
-              <Icon className="" name="receive" onClick={() => router.push("/dashboard/invoice")} />
+              <Icon className="" name="receive" onClick={() => reRouteReceive()} />
               <h5 className="uppercase text-12 font-semibold">receive</h5>
             </div>
 
@@ -161,11 +148,29 @@ const WalletBalance = () => {
           </div>
         </div>
       </div>
+
       <CustomModal toggleVisibility={setShowSendToken} visibility={showSendToken}>
-        <SendToken />
+        <SendToken setSendTokenOptions={setSendTokenOptions} setShowSendToken={setShowSendToken} />
       </CustomModal>
+
       <CustomModal toggleVisibility={setShowConvertToken} visibility={showConvertToken}>
         <ConvertToken />
+      </CustomModal>
+
+      <CustomModal toggleVisibility={setSendTokenOptions} visibility={showSendTokenOptions}>
+        <SendTokenOptions setSendTokenOptions={setSendTokenOptions} setShowPasteAddress={setShowPasteAddress} />
+      </CustomModal>
+
+      <CustomModal toggleVisibility={setReceiveTokenOptions} visibility={showReceiveTokenOptions}>
+        <ReceiveTokenOptions setReceiveTokenOptions={setReceiveTokenOptions} setShowCopyAddress={setShowCopyAddress} />
+      </CustomModal>
+
+      <CustomModal toggleVisibility={setShowPasteAddress} visibility={showPasteAddress}>
+        <EnterOrPasteWalletAddress />
+      </CustomModal>
+
+      <CustomModal toggleVisibility={setShowCopyAddress} visibility={showCopyAddress}>
+        <CopyWalletAddress />
       </CustomModal>
     </>
   );

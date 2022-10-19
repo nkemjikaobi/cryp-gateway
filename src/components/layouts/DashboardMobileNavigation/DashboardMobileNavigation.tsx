@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import Icon from "@components/atoms/Icons";
+import SwitchInstance from "@components/organisms/DashboardPage/SwitchInstance/SwitchInstance";
 
 import useClickOutside from "@hooks/useClickOutside";
 
@@ -52,8 +53,9 @@ const DashboardMobileNavigation = ({ theme }: DashboardMobileNavigationProps) =>
       </div>
       <ul className={` pt-8 relative tablet:px-12 pb-5 bg-glass-600 ${isOpen ? "openNav" : "closeNav"}`} ref={node}>
         {/* <div className="bg-black absolute top-0 left-0 backdrop-blur-[3.125rem] h-full w-full" /> */}
+        <SwitchInstance />
         {MobileDashboardSideBarData.map((data) => (
-          <li className="mx-2 mb-8 flex items-center text-white opacity-95" key={data.id}>
+          <li className="mx-2 mb-8 flex items-center text-white opacity-95 z-10" key={data.id}>
             <Icon className="mr-2" name={data.icon} />
             <CustomLink customClass="capitalize text-16 font-semibold" destination={data.route}>
               {data.name}

@@ -7,12 +7,25 @@ import SingleSendTokenOption from "@components/organisms/DashboardPage/SingleSen
 
 import { ButtonProperties } from "@shared/libs/helpers";
 
-const SendToken = () => {
+interface SendTokenProps {
+  setSendTokenOptions: Function;
+  setShowSendToken: Function;
+}
+
+const SendToken: React.FC<SendTokenProps> = ({ setSendTokenOptions, setShowSendToken }) => {
   const [activeOption, setActiveOption] = useState<number>(1);
   const router = useRouter();
 
   const handleOptionSelect = (identifier: number) => {
     setActiveOption(identifier);
+  };
+
+  const handleSendReroute = () => {
+    if (activeOption === 1) {
+      return router.push("/dashboard/send-to-cryp-assets");
+    }
+    setShowSendToken(false);
+    setSendTokenOptions(true);
   };
 
   return (
@@ -29,7 +42,7 @@ const SendToken = () => {
       <div className="flex items-center justify-center">
         <CustomButton
           customClass="mt mb-12"
-          handleClick={() => router.push("/dashboard/send-to-cryp-assets")}
+          handleClick={() => handleSendReroute()}
           size={ButtonProperties.SIZES.big}
           title="CONTINUE"
           variant={ButtonProperties.VARIANT.primary.name}

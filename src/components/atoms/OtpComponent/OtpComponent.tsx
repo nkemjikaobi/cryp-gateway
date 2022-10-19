@@ -7,6 +7,7 @@ interface OtpComponentProps extends OtpInputProps {
   customInputStyle?: string;
   customFocusStyle?: string;
 }
+
 const OtpComponent = ({ otp, customClassName, customFocusStyle, customInputStyle, ...otherProps }: OtpComponentProps) => {
   return (
     <div>

@@ -98,6 +98,7 @@ module.exports = {
       boxShadow: {
         acceptPayment: "0px 20px 40px rgba(156, 197, 195, 0.3)",
         auth: "0px 20px 40px rgba(199, 199, 199, 0.3)",
+        qrInfo: "0px 20px 40px rgba(199, 199, 199, 0.4)",
       },
     },
   },
