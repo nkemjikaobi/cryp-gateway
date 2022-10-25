@@ -17,7 +17,7 @@ const InvoiceGenerated = () => {
         <Image alt="invoice image" height={136} src={InvoiceMonkey} width={243} />
       </div>
       <h3 className="uppercase text-center text-20 font-bold text-crypYellow-200 mt-[1.813rem] mb-[1.563rem]">invoice</h3>
-      <h4 className="text-14 text-center font-semibold text-crypGreen-800 mb-[3.75rem] mt-[2.063rem]">Date: July 23rd, 2022</h4>
+      <h4 className="text-14 text-center font-medium text-crypGreen-800 mb-[3.75rem] mt-[2.063rem]">Date: July 23rd, 2022</h4>
       <div>
         {InvoiceGeneratedData.map((invoice) => (
           <InvoiceItem invoice={invoice} key={invoice.id} />

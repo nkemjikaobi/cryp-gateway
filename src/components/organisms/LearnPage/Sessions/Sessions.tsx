@@ -16,7 +16,7 @@ const Sessions = () => {
             onClick={() => handleClick(session.videoUrl)}
           >
             <div className="h-[4.875rem] tablet:h-[8.75rem] bg-glass-100 pl-[0.813rem] absolute bottom-0 text-white left-0 rounded-b-[0.75rem] rounded-bl-[0.75rem]  backdrop-blur-[6.25rem] w-full flex flex-col justify-center">
-              <h3 className="uppercase text-12 font-medium tablet:text-20 tablet:font-semibold  mb-[22px]">{session.title}</h3>
+              <h3 className="uppercase text-12 font-medium tablet:text-20 tablet:font-medium  mb-[22px]">{session.title}</h3>
               <CustomButton customClass="capitalize" handleClick={() => {}} isGhost={true} title="Watch Live Replay" />
             </div>
           </div>

@@ -11,7 +11,7 @@ const Building = () => {
     <>
       <div className="pt-32 bigLaptop:pt-48 pb-16 smallLaptop:pb-36 pl-[1.25rem] tablet:pl-[3.125rem]">
         <div className="">
-          <p className="text-[1.255rem] leading-[1.763rem] font-semibold whitespace-nowrap bigLaptop:whitespace-normal tablet:leading-[4rem] smallLaptop:leading-[5rem] desktop:leading-[6.375rem] tablet:text-[2.5rem] smallLaptop:text-[2.813rem] desktop:text-[4rem]  tablet:font-medium">
+          <p className="text-[1.255rem] leading-[1.763rem] font-medium whitespace-nowrap bigLaptop:whitespace-normal tablet:leading-[4rem] smallLaptop:leading-[5rem] desktop:leading-[6.375rem] tablet:text-[2.5rem] smallLaptop:text-[2.813rem] desktop:text-[4rem]  tablet:font-medium">
             Empowering African blockchain
           </p>
           <p className="text-[1.255rem] leading-[1.763rem] font-bold tablet:leading-[4rem] tablet:whitespace-nowrap bigLaptop:whitespace-normal  smallLaptop:leading-[5rem] desktop:leading-[6.375rem] tablet:text-[2.5rem] smallLaptop:text-[2.813rem] desktop:text-[4rem] tablet:font-medium">

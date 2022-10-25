@@ -17,7 +17,7 @@ interface FooterOptionsProps {
 const FooterOptions = ({ options, theme, title, hasIcons }: FooterOptionsProps) => {
   return (
     <div className={`mt-8  opacity-95 ${theme === Themes.DARK ? "text-white" : "text-black"}`}>
-      <h4 className="font-semibold text-18 mb-8">{title}</h4>
+      <h4 className="font-medium text-18 mb-8">{title}</h4>
       {hasIcons ? (
         <ul className="flex items-center mb-8">
           {options &&

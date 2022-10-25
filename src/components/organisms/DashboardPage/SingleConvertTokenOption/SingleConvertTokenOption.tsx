@@ -21,7 +21,7 @@ const SingleConvertTokenOption: React.FC<SingleConvertTokenOptionProps> = ({ act
         <div className="flex items-center">
           <Icon className="mr-[1.125rem]" name={data.logo} />
           <div>
-            <p className="text-14 font-semibold mb-[0.125rem]"> {walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? `${data.symbol} to ${CPUSD}` : `${CPUSD} to ${data.symbol}`}</p>
+            <p className="text-14 font-medium mb-[0.125rem]"> {walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? `${data.symbol} to ${CPUSD}` : `${CPUSD} to ${data.symbol}`}</p>
             <p className="font-medium text-12 text-crypGray-200">{walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? `${data.name} / ${CPUSD}` : `${CPUSD} / ${data.name}`}</p>
           </div>
         </div>

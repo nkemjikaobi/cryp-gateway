@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <>
       <div className="bg-white pt-[2.5rem] px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[3.563rem] rounded-[3.125rem] shadow-auth">
-        <h3 className="text-16 tablet:text-20 font-semibold">Nice to have you back @Adedam0la!</h3>
+        <h3 className="text-16 tablet:text-20 font-medium">Nice to have you back @Adedam0la!</h3>
         <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
           Don’t have an account?{" "}
           <span className="text-crypGreen-800 ml-2">
@@ -90,7 +90,7 @@ const Login = () => {
                   type="submit"
                   variant={ButtonProperties.VARIANT.primary.name}
                 />
-                {/* <p className="font-semibold">or Sign in with</p> */}
+                {/* <p className="font-medium">or Sign in with</p> */}
               </div>
             </Form>
           )}

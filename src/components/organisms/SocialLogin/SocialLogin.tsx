@@ -11,7 +11,7 @@ const SocialLogin = () => {
           key={social.id}
         >
           <Icon name={social.icon} />
-          <p className="capitalize font-semibold text-14">{social.name}</p>
+          <p className="capitalize font-medium text-14">{social.name}</p>
         </div>
       ))}
     </div>

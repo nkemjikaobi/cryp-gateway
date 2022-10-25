@@ -1,74 +1,130 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
+import { Form, Formik, FormikHelpers, FormikProps } from "formik";
+import React from "react";
 import { useDropzone } from "react-dropzone";
+import * as Yup from "yup";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
-import CustomInput from "@components/atoms/CustomInput/CustomInput";
+import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 import Icon from "@components/atoms/Icons";
-import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
-import { ButtonProperties } from "@shared/libs/helpers";
+import { ButtonProperties, errorMessages } from "@shared/libs/helpers";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-interface UserDetailsProps {
-  step: StepProps;
+interface UploadDocumentsProps {
+  isRegistered: boolean;
 }
-const UploadDocuments = ({ step }: UserDetailsProps) => {
-  const [departureDate, setDepartureDate] = useState<Date | null>(null);
+
+const UploadDocuments: React.FC<UploadDocumentsProps> = ({ isRegistered }) => {
   const { getRootProps, getInputProps } = useDropzone();
+
+  const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
+    // todo
+  };
+
+  const initialState = {
+    businessName: "",
+    businessEmail: "",
+    businessPhone: "",
+    businessCountry: "",
+  };
+
+  interface Values {
+    businessName: string;
+    businessEmail: string;
+    businessPhone: string;
+    businessCountry: string;
+  }
+
+  const AddBusinessSchema = Yup.object().shape({
+    businessName: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required(errorMessages.required),
+    businessEmail: Yup.string().email("Invalid email").required(errorMessages.required),
+    businessPhone: Yup.number().min(11, errorMessages.minChar(11)).max(50, "Too Long!").required(errorMessages.required),
+    businessCountry: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required(errorMessages.required),
+  });
 
   return (
     <>
-      <h3 className="text-16 tablet:text-20 font-semibold">Document Upload</h3>
-      <div className="flex items-center mt-[2.313rem] mb-[1.563rem] text-14 tablet:text-18 font-medium">Help us know you better, to serve you better</div>
-      <div className="relative space-y-[2.313rem]">
-        <DatePicker
-          customInput={
-            <CustomInput
-              className="border rounded-[0.125rem] h-[2.813rem] mr-4 mt-2 mb-4"
-              container="!pl-0 !pr-[0.3rem]"
-              icon="calendar2"
-              iconPosition="end"
-              id="date"
-              inputClassName="placeholder:text-xs mobileBelow:ml-4 border-black bg-citiBlue-80"
-              name="arrivalTime"
-              type="text"
-            />
-          }
-          dateFormat="yyyy-MM-dd"
-          minDate={new Date()}
-          onChange={(date: Date) => setDepartureDate(date)}
-          placeholderText="Date of Birth"
-          selected={departureDate}
-        />
-        <div
-          className="w-[19.188rem] tablet:w-[36.563rem] h-[9.75rem] tablet:h-[12.5rem] flex justify-center flex-col items-center cursor-pointer "
-          id="upload"
-          {...getRootProps()}
-        >
-          <input {...getInputProps()} />
-          <div className="flex justify-center mb-[2.125rem]">
-            <Icon className="block text-center" name="upload" />
-          </div>
-          <p className="text-14 font-medium">Upload a valid ID card</p>
-        </div>
-        <div
-          className="w-[19.188rem] tablet:w-[36.563rem] h-[9.75rem] tablet:h-[12.5rem] flex justify-center items-center flex-col cursor-pointer "
-          id="upload"
-          {...getRootProps()}
-        >
-          <input {...getInputProps()} />
-          <div className="flex justify-center mb-[2.125rem]">
-            <Icon name="upload" />
-          </div>
-          <p className="text-14 font-medium">Upload a valid utility bill</p>
-        </div>
-      </div>
-      <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
-        <CustomButton customClass="mt-12" handleClick={() => {}} isDisabled={true} size={ButtonProperties.SIZES.big} title="NEXT" variant={ButtonProperties.VARIANT.primary.name} />
-        <CustomButton customClass="capitalize" handleClick={() => step.goNextStep()} isGhost={true} title="skip for now" />
-      </div>
+      <Formik enableReinitialize initialValues={initialState} onSubmit={handleSubmit} validationSchema={AddBusinessSchema}>
+        {(props: FormikProps<Values>) => (
+          <Form>
+            <div className="relative space-y-[2.313rem]">
+              <div className="relative">
+                <FormikCustomInput
+                  className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 "
+                  container="tablet:px-6"
+                  inputClassName="placeholder:text-xs border-black"
+                  name="businessName"
+                  placeholder="Enter Business Name"
+                  type="text"
+                />
+                <FormikCustomInput
+                  className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 "
+                  container="tablet:px-6"
+                  inputClassName="placeholder:text-xs border-black"
+                  name="businessPhone"
+                  placeholder="Enter Business Phone Number"
+                  type="number"
+                />
+                <FormikCustomInput
+                  className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 "
+                  container="tablet:px-6"
+                  inputClassName="placeholder:text-xs border-black"
+                  name="businessEmail"
+                  placeholder="Enter Business Email Address"
+                  type="email"
+                />
+                <FormikCustomInput
+                  className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 "
+                  container="tablet:px-6"
+                  inputClassName="placeholder:text-xs border-black"
+                  name="businessCountry"
+                  placeholder="Enter Country"
+                  type="text"
+                />
+              </div>
+              {isRegistered && (
+                <div
+                  className="w-[19.188rem] tablet:w-full h-[9.75rem] tablet:h-[12.5rem] flex justify-center flex-col items-center cursor-pointer "
+                  id="upload"
+                  {...getRootProps()}
+                >
+                  <input {...getInputProps()} />
+                  <div className="flex justify-center mb-[2.125rem]">
+                    <Icon className="block text-center" name="upload" />
+                  </div>
+                  <p className="text-14 font-medium opacity-70">Upload Business Certificate/License</p>
+                </div>
+              )}
+              <div className="w-[19.188rem] tablet:w-full h-[9.75rem] tablet:h-[12.5rem] flex justify-center flex-col items-center cursor-pointer " id="upload" {...getRootProps()}>
+                <input {...getInputProps()} />
+                <div className="flex justify-center mb-[2.125rem]">
+                  <Icon className="block text-center" name="upload" />
+                </div>
+                <p className="text-14 font-medium opacity-70">Upload a valid ID card</p>
+                <p className="text-14 font-medium opacity-70">(*This could be an International Passport, Driver’s License, or Voter’s Card</p>
+              </div>
+              <div className="w-[19.188rem] tablet:w-full h-[9.75rem] tablet:h-[12.5rem] flex justify-center items-center flex-col cursor-pointer " id="upload" {...getRootProps()}>
+                <input {...getInputProps()} />
+                <div className="flex justify-center mb-[2.125rem]">
+                  <Icon name="upload" />
+                </div>
+                <p className="text-14 font-medium opacity-70">Upload a valid utility bill</p>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
+              <CustomButton
+                customClass="mt-12"
+                handleClick={() => {}}
+                size={ButtonProperties.SIZES.big}
+                title="REGISTER ME"
+                type="submit"
+                variant={ButtonProperties.VARIANT.primary.name}
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

@@ -63,7 +63,7 @@ const WalletBalance = () => {
               <h5 className="text-crypGreen-800">{currency}</h5>
               <Icon className="w-[0.813rem] h-[0.438rem]" name="yellowDropDown" />
             </div>
-            <div className="flex items-center justify-between text-14 font-semibold space-x-[14.938rem]">
+            <div className="flex items-center justify-between text-14 font-medium space-x-[14.938rem]">
               <h4 className="uppercase text-[0.688rem] smallLaptop:text-14 whitespace-nowrap">total cryp balance</h4>
               <div className="hidden smallLaptop:flex items-center space-x-[0.625rem]">
                 <h5 className="text-crypGreen-800">{currency}</h5>
@@ -80,7 +80,7 @@ const WalletBalance = () => {
                 <Icon className="cursor-pointer" name="eye" onClick={() => setIsBalanceHidden(true)} />
               )}
             </div>
-            <p className="text-14 font-semibold text-crypRed-400 mb-8 smallLaptop:mb-16">{currency} 0.00 pending</p>
+            <p className="text-14 font-medium text-crypRed-400 mb-8 smallLaptop:mb-16">{currency} 0.00 pending</p>
           </div>
         </div>
         <div className="hidden smallLaptop:block">
@@ -126,24 +126,24 @@ const WalletBalance = () => {
           <div className="flex items-center space-x-[1.438rem]">
             <div className="flex flex-col items-center">
               <Icon className="" name="receive" onClick={() => reRouteReceive()} />
-              <h5 className="uppercase text-12 font-semibold">receive</h5>
+              <h5 className="uppercase text-12 font-medium">receive</h5>
             </div>
 
             {walletInstance === WALLET_INSTANCE.CRYP_TOKENS ? (
               <div className="flex flex-col items-center">
                 <Icon className="" name="withdraw" onClick={() => router.push("/dashboard/withdraw")} />
-                <h5 className="uppercase text-12 font-semibold">withdraw</h5>
+                <h5 className="uppercase text-12 font-medium">withdraw</h5>
               </div>
             ) : (
               <div className="flex flex-col items-center">
                 <Icon className="" name="withdraw" onClick={() => setShowSendToken(true)} />
-                <h5 className="uppercase text-12 font-semibold">send</h5>
+                <h5 className="uppercase text-12 font-medium">send</h5>
               </div>
             )}
 
             <div className="flex flex-col items-center">
               <Icon className="" name="convert" onClick={() => setShowConvertToken(true)} />
-              <h5 className="uppercase text-12 font-semibold">convert</h5>
+              <h5 className="uppercase text-12 font-medium">convert</h5>
             </div>
           </div>
         </div>

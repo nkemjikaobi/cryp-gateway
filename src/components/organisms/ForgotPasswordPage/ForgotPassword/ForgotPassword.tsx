@@ -12,7 +12,7 @@ const ForgotPassword = () => {
   return (
     <>
       <div className="bg-white pt-[2.5rem] px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[5.563rem] tablet:mt-[3.563rem] rounded-[3.125rem] shadow-auth">
-        <h3 className="text-16 tablet:text-20 font-semibold mb-[3rem] tablet:mb-[6.938rem]">FORGOT PASSWORD</h3>
+        <h3 className="text-16 tablet:text-20 font-medium mb-[3rem] tablet:mb-[6.938rem]">FORGOT PASSWORD</h3>
         <div className="relative tablet:mb-[8.125rem]">
           <CustomInput
             className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"

@@ -39,6 +39,8 @@ module.exports = {
         crypGray: {
           50: "#F6F6F6",
           100: "#FAFBFC",
+          150: "#F2F2F2",
+          170: "#E1E7EC",
           200: "#C5C9CD",
           250: "#242424",
           300: "#1E1E1E",

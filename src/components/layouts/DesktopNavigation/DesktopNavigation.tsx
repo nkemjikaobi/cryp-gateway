@@ -42,7 +42,7 @@ const DesktopNavigation = ({ theme }: DesktopNavigationProps) => {
           <ul className={`flex items-center justify-between ml-[2.125rem] ${theme === Themes.DARK ? "text-white" : "text-black"}`}>
             {DesktopNav.map((data) => (
               <li className="mx-8 flex items-center " key={data.id}>
-                <CustomLink customClass="capitalize text-14 smallLaptop:text-16 bigLaptop:text-18 font-semibold" destination={data.route}>
+                <CustomLink customClass="capitalize text-14 smallLaptop:text-16 bigLaptop:text-18 font-medium" destination={data.route}>
                   {data.name}
                 </CustomLink>
                 {data.hasOptions && <Icon className="ml-4 cursor-pointer" name="dropDown" />}

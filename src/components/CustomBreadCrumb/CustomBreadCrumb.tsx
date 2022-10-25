@@ -16,7 +16,7 @@ const CustomBreadCrumb: FC<CustomBreadCrumbProps> = ({ breadCrumbs }) => {
   const router: any = useRouter();
   return (
     <>
-      <div className="hidden smallLaptop:flex items-center text-16 font-semibold pt-[2.063rem] pl-[6.813rem]">
+      <div className="hidden smallLaptop:flex items-center text-16 font-medium pt-[2.063rem] pl-[6.813rem]">
         {breadCrumbs &&
           Object.entries(breadCrumbs).map(([index, breadCrumb]) => {
             if (parseInt(index) === Object.entries(breadCrumbs).length - 1) {
@@ -32,7 +32,7 @@ const CustomBreadCrumb: FC<CustomBreadCrumbProps> = ({ breadCrumbs }) => {
             );
           })}
       </div>
-      <div className="flex items-center text-16 font-semibold pt-[3.938rem] pl-[1.813rem] smallLaptop:hidden">
+      <div className="flex items-center text-16 font-medium pt-[3.938rem] pl-[1.813rem] smallLaptop:hidden">
         <Icon className="cursor-pointer mr-[2.063rem]" name="caretLeft" onClick={() => router.back()} />
         <h5 className="uppercase text-14">{breadCrumbs && breadCrumbs[breadCrumbs.length - 1].text}</h5>
       </div>

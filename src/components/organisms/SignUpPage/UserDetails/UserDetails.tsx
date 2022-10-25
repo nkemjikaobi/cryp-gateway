@@ -70,7 +70,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
 
   return (
     <>
-      <h3 className="text-16 tablet:text-20 font-semibold">
+      <h3 className="text-16 tablet:text-20 font-medium">
         Experience <span className="text-crypYellow-200">limitless payments</span> when you register with us
       </h3>
       <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
@@ -170,7 +170,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
                 <CustomCheckBox
                   className="mt-[1.813rem] "
                   label="Keep me signed in"
-                  labelClassName="text-14 ml-[0.313rem] font-semibold whitespace-nowrap"
+                  labelClassName="text-14 ml-[0.313rem] font-medium whitespace-nowrap"
                   labelPosition="end"
                   shape="square"
                 />
@@ -185,7 +185,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />
-              {/* <p className="font-semibold">or register with</p> */}
+              {/* <p className="font-medium">or register with</p> */}
             </div>
           </Form>
         )}

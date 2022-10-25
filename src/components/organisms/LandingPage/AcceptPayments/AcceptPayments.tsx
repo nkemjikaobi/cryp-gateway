@@ -5,7 +5,7 @@ import Icon from "@components/atoms/Icons";
 const AcceptPayments = () => {
   return (
     <div className="tablet:bg-crypGreen-50 rounded-[1.875rem] px-4 tablet:px-[4.5rem] smallLaptop:px-[9.5rem] py-[4.125rem] shadow-acceptPayment">
-      <h2 className="mb-6 tablet:mb-[7.563rem] tablet:text-center text-20 tablet:text-37 smallLaptop:text-47 font-semibold">Trade and Accept Payments With Cryp Today</h2>
+      <h2 className="mb-6 tablet:mb-[7.563rem] tablet:text-center text-20 tablet:text-37 smallLaptop:text-47 font-medium">Trade and Accept Payments With Cryp Today</h2>
       <div className="hidden tablet:block">
         <div className="grid text-center grid-cols-3 tablet:gap-[3.25rem] gap-[7.25rem]">
           {AcceptPaymentsData.map((data) => (

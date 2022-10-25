@@ -12,10 +12,10 @@ const TransactionItem: React.FC<TransactionItemProps> = ({ transaction }) => {
       {transaction.type === "credit" ? <Icon className="pr-[0.625rem]" name="creditArrow" /> : <Icon className="pr-[0.625rem]" name="debitArrow" />}
       <div>
         <div className="flex items-center justify-between w-[17.688rem] mb-4">
-          <h5 className="font-semibold text-[0.688rem]">{transaction.date}</h5>
-          <h6 className={`text-14 font-semibold ${transaction.type === "credit" ? "text-crypGreen-800" : "text-crypRed-500"} `}>{transaction.price}</h6>
+          <h5 className="font-medium text-[0.688rem]">{transaction.date}</h5>
+          <h6 className={`text-14 font-medium ${transaction.type === "credit" ? "text-crypGreen-800" : "text-crypRed-500"} `}>{transaction.price}</h6>
         </div>
-        <p className="text-14 font-semibold ">{transaction.name}</p>
+        <p className="text-14 font-medium ">{transaction.name}</p>
       </div>
     </div>
   );

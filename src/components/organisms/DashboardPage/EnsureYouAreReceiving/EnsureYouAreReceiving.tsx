@@ -8,7 +8,7 @@ import ScanQRMoreInfo from "@components/organisms/modals/ScanQRMoreInfo/ScanQRMo
 const EnsureYouAreReceiving = () => {
   return (
     <>
-      <p className="text-center text-14 tablet:text-18 font-semibold my-[2.813rem] text-crypRed-500 mb-[69.5px]">
+      <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem] text-crypRed-500 mb-[69.5px]">
         *Ensure you are receiving a BEP 20 Token/Coin, any other may result to a loss of your money
       </p>
       <CopyToClipboard
@@ -22,9 +22,9 @@ const EnsureYouAreReceiving = () => {
           <span className="text-crypBlue-300 underline underline-offset-8">paymelink.BTC/wallet/</span>
         </div>
       </CopyToClipboard>
-      <p className="text-center text-14 tablet:text-18 font-semibold my-[2.813rem]">Copy and share the link below to get paid directly in crypto</p>
-      <p className="text-center text-14 tablet:text-18 font-semibold my-[2.813rem]">Or</p>
-      <p className="text-center text-14 tablet:text-18 pb-[69px] text-crypGreen-800 font-semibold my-[2.813rem] flex items-center justify-center">
+      <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Copy and share the link below to get paid directly in crypto</p>
+      <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Or</p>
+      <p className="text-center text-14 tablet:text-18 pb-[69px] text-crypGreen-800 font-medium my-[2.813rem] flex items-center justify-center">
         Scan For Wallet Address <ScanQRMoreInfo />
       </p>
     </>

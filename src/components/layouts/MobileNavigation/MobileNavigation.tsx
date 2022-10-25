@@ -53,7 +53,7 @@ const MobileNavigation = ({ theme }: MobileNavigationProps) => {
         <div className="bg-glass-400 absolute top-0 left-0 backdrop-blur-[3.125rem] h-full w-full" />
         {DesktopNav.map((data) => (
           <li className="mx-2 mb-8 flex items-center text-white opacity-95" key={data.id}>
-            <CustomLink customClass="capitalize text-16 font-semibold" destination={data.route}>
+            <CustomLink customClass="capitalize text-16 font-medium" destination={data.route}>
               {data.name}
             </CustomLink>
             {data.hasOptions && <Icon className="ml-4 cursor-pointer" name="dropDown" />}

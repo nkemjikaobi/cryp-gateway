@@ -36,7 +36,7 @@ const ConvertTokens: React.FC<ConvertTokensProps> = ({ coin }) => {
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto">
         <Toaster position="top-center" />
         <TransactionAmount isBalanceVisible={false} />
-        <div className="flex flex-col smallLaptop:flex-row smallLaptop:items-center space-y-4 smallLaptop:space-y-0 justify-between text-14 smallLaptop:text-18 font-semibold">
+        <div className="flex flex-col smallLaptop:flex-row smallLaptop:items-center space-y-4 smallLaptop:space-y-0 justify-between text-14 smallLaptop:text-18 font-medium">
           <span>{`(${walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? coin : CPUSD} 0.0052568)`}</span>
           <span>(N 24,000.00)</span>
           <span>{`(${walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? CPUSD : coin} 4,000.00)`}</span>

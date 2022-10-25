@@ -38,7 +38,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ setIsLinkGenerated }) => {
         <p className="text-14 font-medium">Upload logo here</p>
       </div>
       <h3 className="uppercase text-center text-20 font-bold text-crypYellow-200">invoice</h3>
-      <h4 className="text-14 font-semibold text-center text-crypGreen-800 mb-[3.75rem] mt-[2.063rem]">Date: July 23rd, 2022</h4>
+      <h4 className="text-14 font-medium text-center text-crypGreen-800 mb-[3.75rem] mt-[2.063rem]">Date: July 23rd, 2022</h4>
       <div className="relative">
         <>
           <CustomLabel className="mb-[0.438rem]" title="Name of Product/Service" />

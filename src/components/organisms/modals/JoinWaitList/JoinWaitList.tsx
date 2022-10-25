@@ -65,7 +65,7 @@ const JoinWaitList = ({ setThankYou, setJoinWaitList }: JoinWaitListProps) => {
       />
       <div className="flex items-center relative">
         <Icon className="absolute left-52 tablet:left-80  top-4 cursor-pointer" name="cancel" onClick={() => setJoinWaitList(false)} />
-        <Dialog.Title as="h4" className="mb-4 -ml-8 tablet:-ml-32  capitalize text-md tablet:text-[1.875rem] whitespace-nowrap font-semibold mt-8">
+        <Dialog.Title as="h4" className="mb-4 -ml-8 tablet:-ml-32  capitalize text-md tablet:text-[1.875rem] whitespace-nowrap font-medium mt-8">
           Get Notified
         </Dialog.Title>
         <Icon className="ml-4 w-[40%] tablet:w-full tablet:ml-8 mt-6" name="yellowLine" />

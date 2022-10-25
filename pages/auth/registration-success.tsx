@@ -16,7 +16,7 @@ const RegistrationSuccess: NextPage = () => {
     <AuthLayout title="Registration Success">
       <div className="flex flex-col justify-center items-center mt-24">
         <Image alt="No bank accounts image" height={229} src={NoImage} width={371} />
-        <h2 className="text-center text-30 font-semibold mt-[3.813rem] mb-[4.188rem]">Congratulations and Welcome to CRYP! </h2>
+        <h2 className="text-center text-30 font-medium mt-[3.813rem] mb-[4.188rem]">Congratulations and Welcome to CRYP! </h2>
         <p className="text-18 font-medium text-center w-[80%] television:w-full">
           It doesn’t end here. You can have all our <span className="text-crypGreen-800">PRO level features</span> at your fingertips today if you add a
           <span className="text-crypGreen-800"> Business Account for FREE</span> !

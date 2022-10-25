@@ -53,7 +53,7 @@ const BankAccounts = () => {
           )}
         </div>
         <div>
-          <h4 className="font-semibold text-crypGreen-800 mb-[2.563rem]">Select a bank account</h4>
+          <h4 className="font-medium text-crypGreen-800 mb-[2.563rem]">Select a bank account</h4>
           <div className="h-[16.25rem] overflow-y-scroll">
             {BankAccountsData.map((bankAccount) => (
               <SingleBankAccount

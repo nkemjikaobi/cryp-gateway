@@ -33,7 +33,7 @@ const SwitchInstance = () => {
       {showDropDown ? <Icon className="cursor-pointer" name="arrowUp" onClick={handleToggle} /> : <Icon className="cursor-pointer" name="yellowDropDown" onClick={handleToggle} />}
       {showDropDown && (
         <div
-          className="absolute cursor-pointer hover:bg-crypGray-50 left-0 top-10 text-14 font-semibold uppercase border border-crypGray-500 w-[171px] z-20 h-[66px] flex justify-center items-center bg-white rounded-[12px]"
+          className="absolute cursor-pointer hover:bg-crypGray-50 left-0 top-10 text-14 font-medium uppercase border border-crypGray-500 w-[171px] z-20 h-[66px] flex justify-center items-center bg-white rounded-[12px]"
           onClick={handleWalletInstance}
         >
           {walletInstance === WALLET_INSTANCE.CRYP_TOKENS ? "other coins/tokens" : "cryp tokens"}

@@ -24,10 +24,10 @@ const SendTokenOptions: React.FC<SendTokenOptionsProps> = ({ setShowPasteAddress
 
   return (
     <div className="rounded-[1.875rem] tablet:rounded-[3.125rem] mx-[1.875rem] px-[1.125rem] tablet:px-16 bg-white text-black">
-      <Dialog.Title as="h3" className="text-16  text-center tablet:text-20 font-semibold pt-[3.063rem] smallLaptop:pt-[4.313rem]">
+      <Dialog.Title as="h3" className="text-16  text-center tablet:text-20 font-medium pt-[3.063rem] smallLaptop:pt-[4.313rem]">
         Send
       </Dialog.Title>
-      <p className="text-center text-14 tablet:text-18 font-semibold my-[2.813rem]">What coin do you want to send?</p>
+      <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">What coin do you want to send?</p>
       <div className="h-[16.25rem] smallLaptop:h-[26.25rem] overflow-y-scroll">
         {SendTokenOptionsData.map((data) => (
           <SingleSendTokenOptions activeOption={activeOption} data={data} handleOptionSelect={handleOptionSelect} key={data.id} />

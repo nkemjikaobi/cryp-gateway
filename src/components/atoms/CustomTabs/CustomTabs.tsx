@@ -19,7 +19,7 @@ const CustomTabs: React.FC<CustomTabsProps> = ({ tabNames, tabComponents }) => {
       <TabList className="flex justify-between items-center">
         {tabNames.map((tabName, index) => (
           <Tab
-            className={`capitalize text-12 smallLaptop:text-base font-semibold pb-[0.688rem] border border-l-0 border-r-0 border-t-0`}
+            className={`capitalize text-12 smallLaptop:text-base font-medium pb-[0.688rem] border border-l-0 border-r-0 border-t-0`}
             key={index}
             selectedClassName="border border-b-crypYellow-200 text-crypGreen-800"
           >

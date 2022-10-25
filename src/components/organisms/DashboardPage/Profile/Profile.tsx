@@ -46,7 +46,7 @@ const Profile = () => {
             </div>
           </div>
           <h5
-            className="ml-[30px] smallLaptop:ml-0 text-14 smallLaptop:text-18 font-semibold text-crypGreen-800 flex items-center cursor-pointer mb-[5.625rem] whitespace-nowrap"
+            className="ml-[30px] smallLaptop:ml-0 text-14 smallLaptop:text-18 font-medium text-crypGreen-800 flex items-center cursor-pointer mb-[5.625rem] whitespace-nowrap"
             onClick={() => setIsBusinessActive(!isBusinessActive)}
           >
             SWITCH ACCOUNT <Icon className="ml-4" name="yellowArrowRight" />
@@ -56,24 +56,27 @@ const Profile = () => {
         {isBusinessActive ? (
           <div>
             {BusinessProfileData.map((business) => (
-              <div className="flex items-center text-14 font-semibold mb-[20px]" key={business.id}>
+              <div className="flex items-center text-14 font-medium mb-[20px]" key={business.id}>
                 <h4 className="opacity-70 mr-[10px]">{business.property}:</h4>
                 <h4>{business.value}</h4>
               </div>
             ))}
           </div>
         ) : (
-          <h5 className="uppercase text-16 smallLaptop:text-18 font-semibold text-crypGreen-800 flex items-center cursor-pointer">
+          <h5
+            className="uppercase text-16 smallLaptop:text-18 font-medium text-crypGreen-800 flex items-center cursor-pointer"
+            onClick={() => router.push("/dashboard/profile/add-a-business-account")}
+          >
             add a business account <Icon className="ml-4" name="yellowArrowRight" />
           </h5>
         )}
 
         <div className="mb-[5.5rem] mt-[5.625rem]">
-          <h3 className="text-16 smallLaptop:text-18 font-semibold">Notification Settings</h3>
+          <h3 className="text-16 smallLaptop:text-18 font-medium">Notification Settings</h3>
           <div>
             {NotificationTogglesData.map((notification) => (
               <div className="flex justify-between items-center mt-[2.438rem]" key={notification.id}>
-                <h5 className="text-12 smallLaptop:text-14 font-semibold">{notification.name}</h5>
+                <h5 className="text-12 smallLaptop:text-14 font-medium">{notification.name}</h5>
                 <label>
                   <Toggle defaultChecked={true} icons={false} onChange={(e) => console.log(e.target.checked)} />
                 </label>
@@ -81,7 +84,7 @@ const Profile = () => {
             ))}
           </div>
         </div>
-        <h5 className="text-16 smallLaptop:text-18 font-semibold text-crypGreen-800 flex items-center cursor-pointer mb-[5.625rem]" onClick={() => setShowSecurityQuestion(true)}>
+        <h5 className="text-16 smallLaptop:text-18 font-medium text-crypGreen-800 flex items-center cursor-pointer mb-[5.625rem]" onClick={() => setShowSecurityQuestion(true)}>
           Re-set Security Questions <Icon className="ml-4" name="yellowArrowRight" />
         </h5>
       </div>

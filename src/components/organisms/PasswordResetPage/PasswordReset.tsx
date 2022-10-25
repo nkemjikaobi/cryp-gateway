@@ -18,7 +18,7 @@ const PasswordReset = () => {
   return (
     <>
       <div className="bg-white pt-[2.5rem] px-[1.875rem] tablet:px-[4.688rem] pb-[3.813rem] tablet:w-[46rem] mx-[1rem] tablet:mx-auto mt-[3.563rem] rounded-[3.125rem] shadow-auth">
-        <h3 className="text-16 tablet:text-20 font-semibold mb-[2.438rem]">Password Reset</h3>
+        <h3 className="text-16 tablet:text-20 font-medium mb-[2.438rem]">Password Reset</h3>
         <div className="relative">
           <CustomInput
             className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[5.813rem]"

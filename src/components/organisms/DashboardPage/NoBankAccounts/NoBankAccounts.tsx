@@ -15,7 +15,7 @@ const NoBankAccounts = () => {
     <div className="flex flex-col justify-center items-center">
       <Toaster position="top-center" />
       <Image alt="No bank accounts image" height={229} src={NoImage} width={371} />
-      <p className="mb-[2.625rem] mt-[3.188rem] text-14 smallLaptop:text-18 font-semibold smallLaptop:font-medium">You have no saved accounts yet</p>
+      <p className="mb-[2.625rem] mt-[3.188rem] text-14 smallLaptop:text-18 font-medium smallLaptop:font-medium">You have no saved accounts yet</p>
       <CustomButton
         handleClick={() => router.push("/dashboard/withdraw/link-bank-account")}
         size={ButtonProperties.SIZES.big}

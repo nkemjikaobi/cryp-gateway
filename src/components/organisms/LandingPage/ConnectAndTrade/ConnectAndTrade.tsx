@@ -11,7 +11,7 @@ const ConnectAndTrade = () => {
   return (
     <div className="flex smallLaptop:items-center pl-4 pr-[1.25rem] smallLaptop:px-[3.125rem] flex-col bigLaptop:flex-row pt-[2.313rem] smallLaptop:pt-[10.188rem]">
       <div>
-        <h2 className="text-20 tablet:text-37 smallLaptop:text-47 font-semibold">Connect and Trade Well Beyond Borders</h2>
+        <h2 className="text-20 tablet:text-37 smallLaptop:text-47 font-medium">Connect and Trade Well Beyond Borders</h2>
         <p className="text-14 my-[2.313rem] tablet:w-[33.188rem] font-medium opacity-70">
           Individual or Merchant, empower your business today with Cryp. We help you make sense of your everyday web payments.
         </p>

@@ -9,7 +9,7 @@ const DashboardSideBar = () => {
       <CustomLink destination="/">
         <Icon className="w-[5.125rem] h-[2.75rem] mb-[3.063rem]" name="logo" />
       </CustomLink>
-      <ul className="space-y-[5.5rem] text-14 fotnt-semibold">
+      <ul className="space-y-[5.5rem] text-14 fotnt-medium">
         {DashboardSideBarData.map((data) => (
           <li className="flex items-center space-x-4 cursor-pointer" key={data.id}>
             <Icon name={data.icon} />

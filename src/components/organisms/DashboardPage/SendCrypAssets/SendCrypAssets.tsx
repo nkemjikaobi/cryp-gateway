@@ -34,7 +34,7 @@ const SendCrypAssets = () => {
     <>
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto">
         <Toaster position="top-center" />
-        <h4 className="font-semibold text-crypRed-500 text-center py-[2.188rem]">*You can only send funds from your OTHER COINS/TOKENS to your CRYP TOKENS</h4>
+        <h4 className="font-medium text-crypRed-500 text-center py-[2.188rem]">*You can only send funds from your OTHER COINS/TOKENS to your CRYP TOKENS</h4>
         <TransactionAmount />
         <div className="flex items-center justify-between">
           <div>

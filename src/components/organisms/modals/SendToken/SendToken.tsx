@@ -30,10 +30,10 @@ const SendToken: React.FC<SendTokenProps> = ({ setSendTokenOptions, setShowSendT
 
   return (
     <div className="rounded-[1.875rem] tablet:rounded-[3.125rem] mx-[1.875rem] px-[1.125rem] tablet:px-16 bg-white text-black">
-      <Dialog.Title as="h3" className="text-16  text-center tablet:text-20 font-semibold pt-[3.063rem] smallLaptop:pt-[4.313rem]">
+      <Dialog.Title as="h3" className="text-16  text-center tablet:text-20 font-medium pt-[3.063rem] smallLaptop:pt-[4.313rem]">
         Send
       </Dialog.Title>
-      <p className="text-center text-14 tablet:text-18 font-semibold my-[2.813rem]">Please pick an option below</p>
+      <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Please pick an option below</p>
       <div className="h-[16.25rem] overflow-y-scroll">
         {SendTokenData.map((sendData) => (
           <SingleSendTokenOption activeOption={activeOption} data={sendData} handleOptionSelect={handleOptionSelect} key={sendData.id} />

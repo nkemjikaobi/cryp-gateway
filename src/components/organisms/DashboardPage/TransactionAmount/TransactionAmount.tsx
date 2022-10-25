@@ -9,7 +9,7 @@ interface TransactionAmountProps {
 const TransactionAmount: React.FC<TransactionAmountProps> = ({ isBalanceVisible }) => {
   return (
     <>
-      {isBalanceVisible && <h4 className="font-semibold text-crypGreen-800 text-center py-[2.188rem]"> (CRYP Balance cUSD 400,000.00)</h4>}
+      {isBalanceVisible && <h4 className="font-medium text-crypGreen-800 text-center py-[2.188rem]"> (CRYP Balance cUSD 400,000.00)</h4>}
       <CustomInput
         className={`border border-t-0 border-r-0 border-l-0 border-b-crypGray-400 rounded-[0.313rem] h-[3.75rem] mr-4 mb-[3.625rem] ${isBalanceVisible ? "" : "mt-[2.188rem]"}`}
         container="tablet:px-6"

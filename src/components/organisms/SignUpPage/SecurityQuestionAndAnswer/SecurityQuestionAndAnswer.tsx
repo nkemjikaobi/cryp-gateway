@@ -29,11 +29,11 @@ const SecurityQuestionAndAnswer = ({ step, isNotstepper, callBack }: UserDetails
           : ""
       }`}
     >
-      <h3 className="text-16 tablet:text-20 font-semibold">Security Question and Answer</h3>
+      <h3 className="text-16 tablet:text-20 font-medium">Security Question and Answer</h3>
       <div className="flex items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
         Keep your money even safer, create your own custom security questions and answers
       </div>
-      <h5 className="text-crypRed-500 text-14 font-semibold mt-12 mb-[1.125rem]">Tip: Try creating questions and answers that are not generic or random for anyone else to know</h5>
+      <h5 className="text-crypRed-500 text-14 font-medium mt-12 mb-[1.125rem]">Tip: Try creating questions and answers that are not generic or random for anyone else to know</h5>
       <div className="relative">
         <CustomInput
           className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[1.875rem]"

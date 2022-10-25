@@ -182,7 +182,7 @@ const CustomButton = ({
     </button>
   ) : isGhost ? (
     <button
-      className={`text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-semibold text-crypYellow-200 flex items-center ${customClass}`}
+      className={`text-12 uppercase hover:text-crypYellow-300 smallLaptop:text-16 font-medium text-crypYellow-200 flex items-center ${customClass}`}
       id={id}
       onClick={() => handleClick()}
       ref={ref}
@@ -193,7 +193,7 @@ const CustomButton = ({
     </button>
   ) : (
     <button
-      className={`text-${textColor} text-12 tablet:text-16 font-semibold smallLaptop:font-bold whitespace-nowrap py-[1.938rem] px-[0.938rem] rounded-[0.625rem] flex justify-center items-center cursor-pointer border ${dimensionStyles} bg-${background} ${
+      className={`text-${textColor} text-12 tablet:text-16 font-medium smallLaptop:font-bold whitespace-nowrap py-[1.938rem] px-[0.938rem] rounded-[0.625rem] flex justify-center items-center cursor-pointer border ${dimensionStyles} bg-${background} ${
         isTransparent ? `${transparentStyles}` : `${opaqueStyles}`
       } ${customClass}`}
       id={id}

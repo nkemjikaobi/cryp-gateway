@@ -21,12 +21,12 @@ const InputTransactionPin: React.FC<InputTransactionPinProps> = ({ callBack, loa
 
   return (
     <div className="rounded-[1.875rem] tablet:rounded-[3.125rem] h-[23rem] tablet:h-[38.188rem] mx-[1.875rem] px-[1.125rem] tablet:px-16 bg-white text-black">
-      <Dialog.Title as="h3" className="text-14 tablet:text-18 font-semibold pt-[3.063rem] smallLaptop:pt-[4.313rem]">
+      <Dialog.Title as="h3" className="text-14 tablet:text-18 font-medium pt-[3.063rem] smallLaptop:pt-[4.313rem]">
         Complete Action
       </Dialog.Title>
       <div className="relative">
         <div className="mb-[3.313rem]">
-          <h3 className="text-14 py-8 smallLaptop:pt-[3.688rem] smallLaptop:pb-[4.25rem] tablet:text-16 font-semibold">Please input your Transaction PIN</h3>
+          <h3 className="text-14 py-8 smallLaptop:pt-[3.688rem] smallLaptop:pb-[4.25rem] tablet:text-16 font-medium">Please input your Transaction PIN</h3>
           <OtpComponent isInputNum={true} numInputs={4} onChange={handleOtpChange} otp={otp} value={otp} />
         </div>
       </div>

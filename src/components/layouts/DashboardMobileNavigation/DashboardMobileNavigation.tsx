@@ -57,7 +57,7 @@ const DashboardMobileNavigation = ({ theme }: DashboardMobileNavigationProps) =>
         {MobileDashboardSideBarData.map((data) => (
           <li className="mx-2 mb-8 flex items-center text-white opacity-95 z-10" key={data.id}>
             <Icon className="mr-2" name={data.icon} />
-            <CustomLink customClass="capitalize text-16 font-semibold" destination={data.route}>
+            <CustomLink customClass="capitalize text-16 font-medium" destination={data.route}>
               {data.name}
             </CustomLink>
           </li>
