@@ -1,17 +1,21 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import Icon from "@components/atoms/Icons";
 
 const DashboardSideBar = () => {
+  const router = useRouter();
+
   return (
     <div className="bg-white h-[70.813rem] w-[17.063rem] pt-8 pl-8 mb-[1.313rem]">
       <CustomLink destination="/">
         <Icon className="w-[5.125rem] h-[2.75rem] mb-[3.063rem]" name="logo" />
       </CustomLink>
-      <ul className="space-y-[5.5rem] text-14 fotnt-medium">
+      <ul className="space-y-[5.5rem] text-14 font-medium">
         {DashboardSideBarData.map((data) => (
           <li className="flex items-center space-x-4 cursor-pointer" key={data.id}>
+            {router.pathname === data.route && <Icon name="activeLink" />}
             <Icon name={data.icon} />
             <h5 className="uppercase">{data.name}</h5>
           </li>
@@ -32,7 +36,7 @@ const DashboardSideBarData = [
     id: 1,
     name: "payments",
     icon: "wallet",
-    route: "/dashboard/payments",
+    route: "/dashboard",
   },
   {
     id: 2,

@@ -57,7 +57,7 @@ export default SendToken;
 const SendTokenData = [
   {
     id: 1,
-    name: "Send to your own wallet (CRYP TOKENS)",
+    name: "Send to a CRYP user",
   },
   {
     id: 2,
