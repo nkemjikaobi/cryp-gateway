@@ -14,7 +14,7 @@ const DashboardSideBar = () => {
       </CustomLink>
       <ul className="space-y-[5.5rem] text-14 font-medium">
         {DashboardSideBarData.map((data) => (
-          <li className="flex items-center space-x-4 cursor-pointer" key={data.id}>
+          <li className="flex items-center space-x-4 cursor-pointer" key={data.id} onClick={() => router.push(data.route)}>
             {router.pathname === data.route && <Icon name="activeLink" />}
             <Icon name={data.icon} />
             <h5 className="uppercase">{data.name}</h5>
@@ -36,7 +36,7 @@ const DashboardSideBarData = [
     id: 1,
     name: "payments",
     icon: "wallet",
-    route: "/dashboard",
+    route: "/dashboard/payments",
   },
   {
     id: 2,

@@ -28,7 +28,7 @@ const RegistrationSuccess: NextPage = () => {
           title="ADD A BUSINESS ACCOUNT NOW"
           variant={ButtonProperties.VARIANT.primary.name}
         />
-        <CustomButton customClass="capitalize" handleClick={() => router.push("/dashboard")} isGhost={true} title="skip for now" />
+        <CustomButton customClass="capitalize" handleClick={() => router.push("/dashboard/payments")} isGhost={true} title="skip for now" />
       </div>
     </AuthLayout>
   );

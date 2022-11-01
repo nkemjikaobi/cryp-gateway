@@ -6,7 +6,7 @@ import DashboardPage from "@components/modules/DashboardPage/DashboardPage";
 
 import { Themes } from "@shared/libs/helpers";
 
-const SignIn: NextPage = () => {
+const DashBoardPayments: NextPage = () => {
   return (
     <DashboardLayout hideFooterOnMobile={true} theme={Themes.LIGHT} title="Dashboard Home">
       <DashboardPage />
@@ -14,4 +14,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default DashBoardPayments;
