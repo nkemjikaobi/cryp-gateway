@@ -2,7 +2,7 @@ import { Dialog } from "@headlessui/react";
 import axios from "axios";
 import { Form, Formik, FormikHelpers, FormikProps } from "formik";
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
@@ -54,15 +54,6 @@ const JoinWaitList = ({ setThankYou, setJoinWaitList }: JoinWaitListProps) => {
   return (
     <div className="flex flex-col relative justify-center rounded-2xl items-center w-[27rem] h-full tablet:w-[41.75rem] tablet:h-[40.5rem]">
       <div className="bg-glass-100 rounded-[10.313rem] absolute top-0 left-0 backdrop-blur-[100px] h-full w-full" />
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          // Default options for specific types
-          error: {
-            duration: 5000,
-          },
-        }}
-      />
       <div className="flex items-center relative">
         <Icon className="absolute left-52 tablet:left-80  top-4 cursor-pointer" name="cancel" onClick={() => setJoinWaitList(false)} />
         <Dialog.Title as="h4" className="mb-4 -ml-8 tablet:-ml-32  capitalize text-md tablet:text-[1.875rem] whitespace-nowrap font-medium mt-8">

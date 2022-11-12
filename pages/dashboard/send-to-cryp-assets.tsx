@@ -6,7 +6,7 @@ import SendToCrpAssetsPage from "@components/modules/SendToCrypAssetsPage/SendTo
 
 const Withdraw: NextPage = () => {
   const getBreadCrumbs = () => {
-    return [{ text: "Dashboard", url: "/dashboard" }, { text: "Send To Cryp Assets" }];
+    return [{ text: "Dashboard", url: "/dashboard/payments" }, { text: "Send To Cryp Assets" }];
   };
   return (
     <TransactionsLayout breadcrumbs={getBreadCrumbs()} title="Send Cryp Assets">

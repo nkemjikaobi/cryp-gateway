@@ -7,7 +7,7 @@ import LinkBankAccountPage from "@components/modules/LinkBankAccountPage/LinkBan
 const LinkBankAccount: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: "Withdraw", url: `/dashboard/withdraw` },
       { text: "Link Bank Account", url: `/dashboard/withdrawlink-bank-account` },
     ];

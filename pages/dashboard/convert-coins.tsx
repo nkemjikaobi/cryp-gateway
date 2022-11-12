@@ -20,7 +20,7 @@ const Withdraw: NextPage = () => {
 
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: `Convert Coins ${coin && `(${walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? `${coin} TO ${CPUSD}` : `${CPUSD} to ${coin}`})`}` },
     ];
   };

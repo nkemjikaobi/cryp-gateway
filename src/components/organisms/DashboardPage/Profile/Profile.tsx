@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Toggle from "react-toggle";
 
 import "react-toggle/style.css";
@@ -35,8 +35,6 @@ const Profile = () => {
   return (
     <>
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto px-4 smallLaptop:pl-[3.375rem] smallLaptop:pr-[3.938rem] mt-[6.5rem] mb-32">
-        <Toaster position="top-center" />
-
         <div className="flex justify-between items-center">
           <div className="cursor-pointer relative w-[10rem] h-[9.375rem]" {...getRootProps()}>
             <input {...getInputProps()} />

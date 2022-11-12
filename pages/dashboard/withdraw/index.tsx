@@ -7,7 +7,7 @@ import WithdrawPage from "@components/modules/WithdrawPage/WithdrawPage";
 const Withdraw: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: "Withdraw", url: `/dashboard/withdraw` },
     ];
   };

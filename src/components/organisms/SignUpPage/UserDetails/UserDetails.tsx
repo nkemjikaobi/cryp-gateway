@@ -1,11 +1,14 @@
+import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikHelpers, FormikProps } from "formik";
-import React, { useState } from "react";
+import { omit } from "lodash";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import * as Yup from "yup";
 import yupPassword from "yup-password";
 
 yupPassword(Yup); // extend yup
 
+import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomCheckBox from "@components/atoms/CustomCheckBox/CustomCheckBox";
 import CustomInput from "@components/atoms/CustomInput/CustomInput";
@@ -13,26 +16,25 @@ import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
-import { ButtonProperties, errorMessages, subtractYears } from "@shared/libs/helpers";
+import { CREATE_USER } from "@graphql/auth/mutations";
+
+import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes, subtractYears } from "@shared/libs/helpers";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 interface UserDetailsProps {
   step: StepProps;
 }
+
 const UserDetails = ({ step }: UserDetailsProps) => {
   const [departureDate, setDepartureDate] = useState<Date | null>(null);
-
-  const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
-    // todo
-  };
+  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
 
   const initialState = {
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
-    dateOfBirth: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -43,7 +45,6 @@ const UserDetails = ({ step }: UserDetailsProps) => {
     lastName: string;
     email: string;
     phoneNumber: string;
-    dateOfBirth: string;
     username: string;
     password: string;
     confirmPassword: string;
@@ -54,7 +55,6 @@ const UserDetails = ({ step }: UserDetailsProps) => {
     lastName: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required(errorMessages.required),
     email: Yup.string().email("Invalid email").required(errorMessages.required),
     phoneNumber: Yup.string().min(11, errorMessages.minChar(11)).max(50, "Too Long!").required(errorMessages.required),
-    dateOfBirth: Yup.date().required(errorMessages.required),
     username: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required(errorMessages.required),
     password: Yup.string()
       .required(errorMessages.required)
@@ -68,6 +68,33 @@ const UserDetails = ({ step }: UserDetailsProps) => {
       .oneOf([Yup.ref("password"), null], errorMessages.passwordMatch),
   });
 
+  const registerUser = async (values: Values, actions: FormikHelpers<Values>) => {
+    const omitConfirmPassword = omit(values, ["confirmPassword"]);
+    const date = new Date(String(departureDate));
+
+    const isoDate = date.toISOString();
+    const newUser = { ...omitConfirmPassword, dateOfBirth: isoDate };
+
+    await createUser({
+      variables: {
+        input: {
+          ...newUser,
+        },
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (data) {
+      crypToast(NotificationTypes.SUCCESS, "Registration successful");
+      step.goNextStep();
+    }
+
+    if (error) {
+      handleGraphQLErrors(error);
+    }
+  }, [data, error]);
+
   return (
     <>
       <h3 className="text-16 tablet:text-20 font-medium">
@@ -80,7 +107,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
         </span>
       </div>
       <div className="flex text-crypRed-500 items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">*All fields are required</div>
-      <Formik enableReinitialize initialValues={initialState} onSubmit={handleSubmit} validationSchema={UserDetailsSchema}>
+      <Formik enableReinitialize initialValues={initialState} onSubmit={registerUser} validationSchema={UserDetailsSchema}>
         {(props: FormikProps<Values>) => (
           <Form>
             <div className="relative">
@@ -135,6 +162,7 @@ const UserDetails = ({ step }: UserDetailsProps) => {
                 name="dateOfBirth"
                 onChange={(date: Date) => setDepartureDate(date)}
                 placeholderText="Date of Birth"
+                required
                 selected={departureDate}
                 showMonthDropdown
                 showYearDropdown
@@ -179,7 +207,9 @@ const UserDetails = ({ step }: UserDetailsProps) => {
             <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
               <CustomButton
                 customClass="mt-12"
-                handleClick={() => step.goNextStep()}
+                handleClick={() => {}}
+                isDisabled={loading}
+                isSubmitting={loading}
                 size={ButtonProperties.SIZES.big}
                 title="REGISTER ME"
                 type="submit"

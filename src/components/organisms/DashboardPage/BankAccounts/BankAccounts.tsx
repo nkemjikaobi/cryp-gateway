@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
@@ -28,7 +28,7 @@ const BankAccounts = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      router.push("/dashboard");
+      router.push("/dashboard/payments");
       toast.success("Money withdrawn successfully!");
     }, 3000);
   };
@@ -39,7 +39,6 @@ const BankAccounts = () => {
   return (
     <>
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto">
-        <Toaster position="top-center" />
         <TransactionAmount />
         <div className="flex items-center justify-between">
           <div>

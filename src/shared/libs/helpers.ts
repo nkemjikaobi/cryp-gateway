@@ -1,3 +1,7 @@
+import { ApolloError } from "@apollo/client";
+
+import { crypToast } from "@components/atoms/CrypToast/CrypToast";
+
 /**
  * Compose a number of styles together easily
  * @param {String} styles Classes/styles to be applied
@@ -187,3 +191,26 @@ export const WALLET_INSTANCE = {
 };
 
 export const CPUSD = "cpUSD";
+
+export const LocalStorageKeys = {
+  TOKEN: "token",
+  EXPIRATION_TIME: "time",
+};
+
+/**
+ * Handle GraphQL Errors
+ * @param {ApolloError | undefined} error
+ * @return {ApolloError}
+ */
+export const handleGraphQLErrors = (error: ApolloError | undefined) => {
+  return error?.graphQLErrors.map((error) => crypToast(NotificationTypes.ERROR, error.message));
+};
+
+/**
+ * Notification Types
+ */
+export const NotificationTypes = {
+  SUCCESS: "success",
+  INFO: "info",
+  ERROR: "error",
+};

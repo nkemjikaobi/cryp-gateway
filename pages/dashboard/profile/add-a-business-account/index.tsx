@@ -7,7 +7,7 @@ import AddABusinessPage from "@components/modules/AddABusinessPage/AddABusinessP
 const AddABusiness: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: "Profile", url: `/dashboard/profile` },
       { text: "Add A Business Account", url: `/dashboard/profile/add-a-business-account` },
     ];

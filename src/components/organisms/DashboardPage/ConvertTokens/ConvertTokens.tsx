@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { AppState } from "src/store/rootReducer";
 
@@ -27,14 +27,13 @@ const ConvertTokens: React.FC<ConvertTokensProps> = ({ coin }) => {
     setTimeout(() => {
       setLoading(false);
       toast.success("Conversion successful!!");
-      router.push("/dashboard");
+      router.push("/dashboard/payments");
     }, 3000);
   };
 
   return (
     <>
       <div className="w-[21.438rem] tablet:w-[90%] smallLaptop:w-[46rem] mx-auto">
-        <Toaster position="top-center" />
         <TransactionAmount isBalanceVisible={false} />
         <div className="flex flex-col smallLaptop:flex-row smallLaptop:items-center space-y-4 smallLaptop:space-y-0 justify-between text-14 smallLaptop:text-18 font-medium">
           <span>{`(${walletInstance === WALLET_INSTANCE.OTHER_TOKENS ? coin : CPUSD} 0.0052568)`}</span>

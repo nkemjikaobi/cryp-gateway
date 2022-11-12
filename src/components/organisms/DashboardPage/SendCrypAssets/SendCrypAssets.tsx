@@ -1,7 +1,7 @@
 import { Form, Formik, FormikProps } from "formik";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
@@ -28,7 +28,7 @@ const SendCrypAssets = () => {
     setTimeout(() => {
       setLoading(false);
       toast.success("Money sent to your PRIME WALLET successfully!!");
-      router.push("/dashboard");
+      router.push("/dashboard/payments");
     }, 3000);
   };
 
@@ -62,7 +62,6 @@ const SendCrypAssets = () => {
                   />
                 </div>
               </div>
-              <Toaster position="top-center" />
               <h4 className="font-medium text-crypRed-500 text-center py-[2.188rem]">*You can only send funds from your OTHER COINS/TOKENS to your CRYP TOKENS</h4>
               <TransactionAmount />
               <div className="flex items-center justify-between">

@@ -7,7 +7,7 @@ import ProfilePage from "@components/modules/ProfilePage/ProfilePage";
 const Invoice: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: "Profile", url: `/dashboard/profile` },
     ];
   };

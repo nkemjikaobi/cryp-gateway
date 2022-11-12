@@ -4,7 +4,6 @@ import StepperComponent, { StepProps } from "@components/atoms/StepperComponent/
 
 import SecurityQuestionAndAnswer from "../SecurityQuestionAndAnswer/SecurityQuestionAndAnswer";
 import TransactionPin from "../TransactionPin/TransactionPin";
-// import UploadDocuments from "../UploadDocuments/UploadDocuments";
 import UserDetails from "../UserDetails/UserDetails";
 
 const Register = () => {

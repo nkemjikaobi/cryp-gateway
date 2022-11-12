@@ -7,7 +7,7 @@ import InvoicePage from "@components/modules/InvoicePage/InvoicePage";
 const Invoice: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
-      { text: "Dashboard", url: "/dashboard" },
+      { text: "Dashboard", url: "/dashboard/payments" },
       { text: "Invoice", url: `/dashboard/invoice` },
     ];
   };

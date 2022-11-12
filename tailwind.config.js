@@ -77,12 +77,16 @@ module.exports = {
           200: "#A7EDEA",
         },
         crypRed: {
+          100: "#F7E2E3",
+          200: "#E36363",
           400: "#B21D1D",
           500: "#D62E2E",
         },
         crypBlue: {
+          100: "#D4E4F7",
           200: "#EAF2FB",
           300: "#8DCFFF",
+          400: "#2566C1",
         },
       },
       width: {

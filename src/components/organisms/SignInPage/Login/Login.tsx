@@ -1,23 +1,34 @@
+import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikHelpers, FormikProps } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import yupPassword from "yup-password";
 
+import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 import ProveYourIdentity from "@components/organisms/modals/ProveYourIdentity/ProveYourIdentity";
 
-import { ButtonProperties, errorMessages } from "@shared/libs/helpers";
+import { LOGIN_USER } from "@graphql/auth/mutations";
+
+import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes } from "@shared/libs/helpers";
 yupPassword(Yup); // extend yup
 
 const Login = () => {
   const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
-  const [loading] = useState<boolean>(false);
+  const [identityLoading] = useState<boolean>(false);
+  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
 
   const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
-    // todo
+    await loginUser({
+      variables: {
+        data: {
+          ...values,
+        },
+      },
+    });
   };
 
   const initialState = {
@@ -44,6 +55,19 @@ const Login = () => {
   const callBack = () => {
     //
   };
+
+  useEffect(() => {
+    if (data) {
+      crypToast(NotificationTypes.SUCCESS, "Login successful");
+      setTimeout(() => {
+        setShowSecurityQuestion(true);
+      }, 1000);
+    }
+
+    if (error) {
+      handleGraphQLErrors(error);
+    }
+  }, [data, error]);
 
   return (
     <>
@@ -84,7 +108,9 @@ const Login = () => {
               <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
                 <CustomButton
                   customClass="mt-12"
-                  handleClick={() => setShowSecurityQuestion(true)}
+                  handleClick={() => {}}
+                  isDisabled={loading}
+                  isSubmitting={loading}
                   size={ButtonProperties.SIZES.big}
                   title="SIGN ME IN"
                   type="submit"
@@ -99,7 +125,7 @@ const Login = () => {
         {/* <SocialLogin /> */}
       </div>
       <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
-        <ProveYourIdentity callBack={callBack} loading={loading} />
+        <ProveYourIdentity callBack={callBack} loading={identityLoading} />
       </CustomModal>
     </>
   );
