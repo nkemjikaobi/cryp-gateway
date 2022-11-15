@@ -154,7 +154,7 @@ const SecurityQuestionAndAnswer = ({ step, isNotstepper, callBack }: UserDetails
                 type="submit"
                 variant={ButtonProperties.VARIANT.primary.name}
               />
-              {!isNotstepper && <CustomButton customClass="capitalize" handleClick={() => step?.goNextStep()} isGhost={true} title="skip for now" />}
+              {!isNotstepper && <CustomButton customClass="capitalize" handleClick={() => router.push("/auth/registration-success")} isGhost={true} title="skip for now" />}
             </div>
           </Form>
         )}

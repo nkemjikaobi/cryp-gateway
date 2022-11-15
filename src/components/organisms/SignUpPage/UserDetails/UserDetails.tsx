@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikHelpers, FormikProps } from "formik";
 import { omit } from "lodash";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import * as Yup from "yup";
@@ -29,6 +30,7 @@ interface UserDetailsProps {
 const UserDetails = ({ step }: UserDetailsProps) => {
   const [departureDate, setDepartureDate] = useState<Date | null>(null);
   const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+  const router = useRouter();
 
   const initialState = {
     firstName: "",
@@ -87,7 +89,8 @@ const UserDetails = ({ step }: UserDetailsProps) => {
   useEffect(() => {
     if (data) {
       crypToast(NotificationTypes.SUCCESS, "Registration successful");
-      step.goNextStep();
+      // step.goNextStep();
+      router.push("/auth//verify-email");
     }
 
     if (error) {

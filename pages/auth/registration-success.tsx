@@ -23,7 +23,7 @@ const RegistrationSuccess: NextPage = () => {
         </p>
         <CustomButton
           customClass="mt-[4.063rem] mb-8 smallLaptop:mb-[4.813rem]"
-          handleClick={() => {}}
+          handleClick={() => router.push("/dashboard/profile/add-a-business-account")}
           size={ButtonProperties.SIZES.big}
           title="ADD A BUSINESS ACCOUNT NOW"
           variant={ButtonProperties.VARIANT.primary.name}

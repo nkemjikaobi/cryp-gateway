@@ -14,14 +14,14 @@ const VerifyEmailSuccess = () => {
       <Icon className="mb-12 smallLaptop:mb-[7.375rem] w-[12.625rem] h-[8.375rem] smallLaptop:w-[16.813rem] smallLaptop:h-[10rem]" name="tick" />
       <h3 className="text-16 text-center tablet:text-30 font-semibold">Verified and Ready To Go!</h3>
       <div className="flex text-center items-center mt-[2.313rem] mb-[3.563rem] text-14 tablet:text-18 font-medium">
-        You have successfully verified this account. You can now sign in to begin
+        You have successfully verified this account. You can now continue registration
       </div>
       <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
         <CustomButton
           customClass="mt-12"
-          handleClick={() => router.push("/auth/login")}
+          handleClick={() => router.push("/auth/continue-sign-up")}
           size={ButtonProperties.SIZES.big}
-          title="SIGN INTO MY NEW ACCOUNT"
+          title="CONTINUE REGISTRATION"
           type="submit"
           variant={ButtonProperties.VARIANT.primary.name}
         />
