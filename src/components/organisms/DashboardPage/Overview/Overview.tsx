@@ -1,14 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { AppState } from "src/store/rootReducer";
 
 import Icon from "@components/atoms/Icons";
 
+import { WALLET_INSTANCE } from "@shared/libs/helpers";
+
+import CrypTokensInstance from "../CrypTokensInstance/CrypTokensInstance";
+import OtherTokensInstance from "../OtherTokensInstance/OtherTokensInstance";
 import ProfileAndNotifications from "../ProfileAndNotifications/ProfileAndNotifications";
-import RecentTransactions from "../RecentTransactions/RecentTransactions";
 import WalletBalance from "../WalletBalance/WalletBalance";
 import WalletDoughnutCharts from "../WalletDoughnutCharts/WalletDoughnutCharts";
-import WalletGrowth from "../WalletGrowth/WalletGrowth";
 
 const Overview = () => {
+  const { walletInstance } = useSelector((state: AppState) => state.global || {});
+
   return (
     <div className="smallLaptop:bg-white ml-[0.625rem] mr-4 smallLaptop:w-[70.688rem] television:w-full smallLaptop:h-[33.313rem] relative rounded-br-[2.5rem] rounded-bl-[2.5rem]">
       <ProfileAndNotifications />
@@ -17,21 +23,7 @@ const Overview = () => {
         <Icon className="hidden smallLaptop:block" name="divider" />
         <WalletDoughnutCharts />
       </div>
-      <div className="pt-[2rem] smallLaptop:pt-[4.188rem]">
-        <h5 className="text-18 font-bold text-crypGreen-800 mb-2 pl-4 smallLaptop:pl-0">Growth</h5>
-        <div className="hidden smallLaptop:block">
-          <div className="flex flex-col smallLaptop:flex-row smallLaptop:items-center smallLaptop:justify-between television:justify-start">
-            <WalletGrowth />
-            <RecentTransactions />
-          </div>
-        </div>
-        <div className="block smallLaptop:hidden">
-          <div className="flex flex-col smallLaptop:flex-row smallLaptop:items-center smallLaptop:justify-between">
-            <RecentTransactions />
-            {/* <WalletGrowth /> */}
-          </div>
-        </div>
-      </div>
+      {walletInstance === WALLET_INSTANCE.CRYP_TOKENS ? <CrypTokensInstance /> : <OtherTokensInstance />}
     </div>
   );
 };

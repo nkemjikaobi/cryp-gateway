@@ -28,7 +28,7 @@ const DashboardLayout = ({ children, title, description, keywords, hideFooterOnM
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <section className="smallLaptop:px-0 bg-crypGray-50 relative overflow-x-hidden">
-        <main className="h-auto z-50 flex">
+        <main className="h-auto z-50 pb-[5rem] flex">
           <div className="hidden smallLaptop:block">
             <DashboardSideBar />
           </div>
