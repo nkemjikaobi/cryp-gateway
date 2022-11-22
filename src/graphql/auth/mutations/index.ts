@@ -1,13 +1,27 @@
 import { gql } from "@apollo/client";
 
 const CREATE_USER = gql`
-  mutation Mutation($input: CreateUserInput!) {
+  mutation CreateUser($input: CreateUserInput!) {
     createUser(input: $input) {
-      id
-      email
-      phoneNumber
-      lastName
-      firstName
+      user {
+        id
+        email
+        phoneCode
+        phoneNumber
+        lastName
+        isPinSet
+        firstName
+        customerId
+        questions {
+          question
+          answer
+        }
+      }
+      meta {
+        mobile {
+          token
+        }
+      }
     }
   }
 `;
@@ -22,6 +36,11 @@ const LOGIN_USER = gql`
         phoneNumber
         lastName
         firstName
+        customerId
+        questions {
+          question
+          answer
+        }
         createdAt
         updatedAt
         activeBusiness {
@@ -78,6 +97,21 @@ const CREATE_PIN = gql`
   }
 `;
 
+const USE_EMAIL_CODE = gql`
+  mutation Mutation($code: String!) {
+    useEmailCode(code: $code) {
+      id
+      email
+    }
+  }
+`;
+
+const SEND_EMAIL_CODE = gql`
+  mutation Mutation($email: String!) {
+    sendEmailCode(email: $email)
+  }
+`;
+
 const CREATE_SECURITY_QUESTION = gql`
   mutation Mutation($input: CreateUserSecurityQuestionInput!) {
     createSecurityQuestion(input: $input) {
@@ -108,4 +142,19 @@ const CHANGE_PASSWORD = gql`
   }
 `;
 
-export { CREATE_USER, LOGIN_USER, CREATE_PIN, CREATE_SECURITY_QUESTION, SEND_PASSWORD_RESET_CODE, CHANGE_PASSWORD };
+const RESET_PASSWORD = gql`
+  mutation ResetPassword($input: PasswordResetInput!) {
+    resetPassword(input: $input) {
+      id
+      email
+      phoneCode
+      phoneNumber
+      lastName
+      isPinSet
+      firstName
+      customerId
+    }
+  }
+`;
+
+export { CREATE_USER, LOGIN_USER, CREATE_PIN, CREATE_SECURITY_QUESTION, SEND_PASSWORD_RESET_CODE, CHANGE_PASSWORD, USE_EMAIL_CODE, SEND_EMAIL_CODE, RESET_PASSWORD };

@@ -1,4 +1,6 @@
 import { ApolloError } from "@apollo/client";
+import moment, { Moment } from "moment";
+import { ParsedUrlQuery } from "querystring";
 
 import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 
@@ -195,6 +197,16 @@ export const CPUSD = "cpUSD";
 export const LocalStorageKeys = {
   TOKEN: "token",
   EXPIRATION_TIME: "time",
+};
+
+export const getTokenExpirationTime = (): Moment => {
+  return moment().add(45, "m"); // 45 minutes from current time
+};
+
+export const getUrlQuery = (query: ParsedUrlQuery): string => {
+  if (Object.keys(query).length > 0) {
+    return `?${Object.entries(query).map(([key, value]) => `${key}=${value}&`)}`.replaceAll(",", "").slice(0, -1);
+  } else return "";
 };
 
 /**

@@ -1,23 +1,33 @@
 import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikProps } from "formik";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import yupPassword from "yup-password";
 
 import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
-
+import OtpComponent from "@components/atoms/OtpComponent/OtpComponent";
 yupPassword(Yup); // extend yup
 
-import { CHANGE_PASSWORD } from "@graphql/auth/mutations";
+import { RESET_PASSWORD } from "@graphql/auth/mutations";
 
 import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes } from "@shared/libs/helpers";
 
 const PasswordReset = () => {
-  const [changePassword, { data, loading, error }] = useMutation(CHANGE_PASSWORD);
+  const [resetPassword, { data, loading, error }] = useMutation(RESET_PASSWORD);
+  const [otp, setOtp] = useState<string>("");
+
   const router = useRouter();
+  const query = router.query;
+  const { email } = query;
+
+  const handleOtpChange = async (otp: string) => {
+    if (otp) {
+      setOtp(otp);
+    }
+  };
 
   const initialState = {
     oldPassword: "",
@@ -43,9 +53,13 @@ const PasswordReset = () => {
   });
 
   const sendResetCode = async (values: Values) => {
-    await changePassword({
+    const passDetails = { code: otp, newPassword: values.newPassword, email };
+
+    await resetPassword({
       variables: {
-        ...values,
+        input: {
+          ...passDetails,
+        },
       },
     });
   };
@@ -54,7 +68,7 @@ const PasswordReset = () => {
     if (data) {
       crypToast(NotificationTypes.SUCCESS, "Password reset");
       setTimeout(() => {
-        router.push("/aut/sign-in");
+        router.push("/auth/sign-in");
       }, 1500);
     }
 
@@ -71,6 +85,12 @@ const PasswordReset = () => {
           {(props: FormikProps<Values>) => (
             <Form>
               <div className="relative">
+                <div className="mb-8">
+                  <h3 className="text-14 tablet:text-16 font-medium">Enter Reset Code</h3>
+
+                  <OtpComponent isInputNum={true} isInputSecure={true} numInputs={6} onChange={handleOtpChange} otp={otp} value={otp} />
+                </div>
+
                 <FormikCustomInput
                   className="border border-glass-450 rounded-[0.313rem] h-[3.75rem] mr-4 mt-2 mb-[5.813rem]"
                   container="px-6"

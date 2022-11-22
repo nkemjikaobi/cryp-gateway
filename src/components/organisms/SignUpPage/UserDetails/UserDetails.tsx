@@ -19,7 +19,7 @@ import { StepProps } from "@components/atoms/StepperComponent/StepperComponent";
 
 import { CREATE_USER } from "@graphql/auth/mutations";
 
-import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes, subtractYears } from "@shared/libs/helpers";
+import { ButtonProperties, errorMessages, getTokenExpirationTime, handleGraphQLErrors, LocalStorageKeys, NotificationTypes, subtractYears } from "@shared/libs/helpers";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -89,7 +89,10 @@ const UserDetails = ({ step }: UserDetailsProps) => {
   useEffect(() => {
     if (data) {
       crypToast(NotificationTypes.SUCCESS, "Registration successful");
-      // step.goNextStep();
+
+      localStorage.setItem(LocalStorageKeys.TOKEN, data.createUser.meta.mobile.token);
+      localStorage.setItem(LocalStorageKeys.EXPIRATION_TIME, String(getTokenExpirationTime()));
+
       router.push("/auth//verify-email");
     }
 

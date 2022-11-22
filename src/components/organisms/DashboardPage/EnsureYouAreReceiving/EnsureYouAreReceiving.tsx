@@ -24,8 +24,8 @@ const EnsureYouAreReceiving = () => {
       </CopyToClipboard>
       <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Copy and share the link below to get paid directly in crypto</p>
       <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Or</p>
-      <p className="text-center text-14 tablet:text-18 pb-[69px] text-crypGreen-800 font-medium my-[2.813rem] flex items-center justify-center">
-        Scan For Wallet Address <ScanQRMoreInfo />
+      <p className="text-center text-14 tablet:text-18 pb-[69px] text-crypGreen-800 font-medium my-[2.813rem] flex items-center justify-center relative">
+        Scan For Wallet Address <ScanQRMoreInfo customClass="left-[450px]" message="Scan the wallet QR Code to get the address. Works best on a mobile view" />
       </p>
     </>
   );

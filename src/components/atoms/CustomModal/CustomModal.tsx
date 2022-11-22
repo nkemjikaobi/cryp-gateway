@@ -1,16 +1,24 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { useDispatch } from "react-redux";
 
 interface CustomModalProps {
   toggleVisibility?: Function;
   visibility: boolean;
   children: any;
   callBack?: Function;
+  isDispatch?: boolean;
 }
 
-const CustomModal = ({ toggleVisibility, visibility, children, callBack }: CustomModalProps) => {
+const CustomModal = ({ toggleVisibility, visibility, children, callBack, isDispatch }: CustomModalProps) => {
+  const dispatch = useDispatch();
+
   const closeModal = () => {
-    toggleVisibility && toggleVisibility(false);
+    if (isDispatch) {
+      toggleVisibility && dispatch(toggleVisibility(false));
+    } else {
+      toggleVisibility && toggleVisibility(false);
+    }
     callBack && callBack();
   };
 
@@ -56,4 +64,5 @@ export default CustomModal;
 CustomModal.defaultProps = {
   toggleVisibility: () => {},
   callBack: () => {},
+  isDispatch: false,
 };

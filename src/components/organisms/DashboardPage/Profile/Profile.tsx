@@ -3,14 +3,16 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 import Toggle from "react-toggle";
-
-import "react-toggle/style.css";
+import { AppState } from "src/store/rootReducer";
 
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import Icon from "@components/atoms/Icons";
 import ProveYourIdentity from "@components/organisms/modals/ProveYourIdentity/ProveYourIdentity";
 import SecurityQuestionAndAnswer from "@components/organisms/SignUpPage/SecurityQuestionAndAnswer/SecurityQuestionAndAnswer";
+
+import "react-toggle/style.css";
 
 import InvoiceMonkey from "@images/dashboard/invoice/invoiceMonkey.png";
 
@@ -18,9 +20,10 @@ const Profile = () => {
   const { getRootProps, getInputProps } = useDropzone();
   const [isBusinessActive, setIsBusinessActive] = useState<boolean>(false);
   const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
-  const [loading] = useState<boolean>(false);
   const [questions, setQuestions] = useState<boolean>(false);
   const router = useRouter();
+
+  const { user } = useSelector((state: AppState) => state.auth || {});
 
   const callBack = () => {
     setShowSecurityQuestion(false);
@@ -50,7 +53,9 @@ const Profile = () => {
             SWITCH ACCOUNT <Icon className="ml-4" name="yellowArrowRight" />
           </h5>
         </div>
-        <h4 className="font-medium text-24 mt-[14px] mb-[110px]">@Adedam0la</h4>
+        <h4 className="font-medium text-24 mt-[14px] mb-[110px]">
+          {user?.firstName} {user?.lastName}
+        </h4>
         {isBusinessActive ? (
           <div>
             {BusinessProfileData.map((business) => (
@@ -87,7 +92,7 @@ const Profile = () => {
         </h5>
       </div>
       <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
-        <ProveYourIdentity callBack={callBack} loading={loading} />
+        <ProveYourIdentity callBack={callBack} hasCustomCallBack={true} />
       </CustomModal>
       <CustomModal toggleVisibility={setQuestions} visibility={questions}>
         <SecurityQuestionAndAnswer callBack={resetQuestions} isNotstepper={true} />

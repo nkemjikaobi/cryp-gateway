@@ -7,12 +7,13 @@ import yupPassword from "yup-password";
 
 yupPassword(Yup); // extend yup
 
+import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 
 import { SEND_PASSWORD_RESET_CODE } from "@graphql/auth/mutations";
 
-import { ButtonProperties, errorMessages, handleGraphQLErrors } from "@shared/libs/helpers";
+import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes } from "@shared/libs/helpers";
 
 const ForgotPassword = () => {
   const router = useRouter();
@@ -42,8 +43,9 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (data) {
+      crypToast(NotificationTypes.SUCCESS, "Code Sent");
       router.push({
-        pathname: "/auth/reset-link-success",
+        pathname: "/auth/password-reset",
         query: { email: userEmail },
       });
     }
@@ -77,7 +79,7 @@ const ForgotPassword = () => {
                   isDisabled={loading}
                   isSubmitting={loading}
                   size={ButtonProperties.SIZES.big}
-                  title="SEND RESET LINK"
+                  title="SEND RESET CODE"
                   type="submit"
                   variant={ButtonProperties.VARIANT.primary.name}
                 />

@@ -1,28 +1,29 @@
-import { useMutation } from "@apollo/client";
 import { Form, Formik, FormikHelpers, FormikProps } from "formik";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { setShowSecurityQuestion } from "src/store/global";
+import { AppState } from "src/store/rootReducer";
 import * as Yup from "yup";
 import yupPassword from "yup-password";
 
-import { crypToast } from "@components/atoms/CrypToast/CrypToast";
 import CustomButton from "@components/atoms/CustomButton/CustomButton";
 import CustomLink from "@components/atoms/CustomLink/CustomLink";
 import CustomModal from "@components/atoms/CustomModal/CustomModal";
 import FormikCustomInput from "@components/atoms/FormikCustomInput/FormikCustomInput";
 import ProveYourIdentity from "@components/organisms/modals/ProveYourIdentity/ProveYourIdentity";
 
-import { LOGIN_USER } from "@graphql/auth/mutations";
+import useLoginMutation from "@hooks/useLoginMutation";
 
-import { ButtonProperties, errorMessages, handleGraphQLErrors, NotificationTypes } from "@shared/libs/helpers";
+import { ButtonProperties, errorMessages } from "@shared/libs/helpers";
 yupPassword(Yup); // extend yup
 
 const Login = () => {
-  const [showSecurityQuestion, setShowSecurityQuestion] = useState<boolean>(false);
-  const [identityLoading] = useState<boolean>(false);
-  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
+  const { showSecurityQuestion } = useSelector((state: AppState) => state.global || {});
 
-  const handleSubmit = async (values: Values, actions: FormikHelpers<Values>) => {
-    await loginUser({
+  const { login, isLoading } = useLoginMutation();
+
+  const handleSubmit = (values: Values, actions: FormikHelpers<Values>) => {
+    login({
       variables: {
         data: {
           ...values,
@@ -51,23 +52,6 @@ const Login = () => {
       .minNumbers(1, errorMessages.minNumber(1))
       .minSymbols(1, errorMessages.minSymbol(1)),
   });
-
-  const callBack = () => {
-    //
-  };
-
-  useEffect(() => {
-    if (data) {
-      crypToast(NotificationTypes.SUCCESS, "Login successful");
-      setTimeout(() => {
-        setShowSecurityQuestion(true);
-      }, 1000);
-    }
-
-    if (error) {
-      handleGraphQLErrors(error);
-    }
-  }, [data, error]);
 
   return (
     <>
@@ -109,8 +93,8 @@ const Login = () => {
                 <CustomButton
                   customClass="mt-12"
                   handleClick={() => {}}
-                  isDisabled={loading}
-                  isSubmitting={loading}
+                  isDisabled={isLoading}
+                  isSubmitting={isLoading}
                   size={ButtonProperties.SIZES.big}
                   title="SIGN ME IN"
                   type="submit"
@@ -124,9 +108,11 @@ const Login = () => {
 
         {/* <SocialLogin /> */}
       </div>
-      <CustomModal toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
-        <ProveYourIdentity callBack={callBack} loading={identityLoading} />
+      {/* {question && ( */}
+      <CustomModal isDispatch={true} toggleVisibility={setShowSecurityQuestion} visibility={showSecurityQuestion}>
+        <ProveYourIdentity />
       </CustomModal>
+      {/* )} */}
     </>
   );
 };

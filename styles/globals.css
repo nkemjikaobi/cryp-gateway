@@ -45,6 +45,13 @@
   background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
 }
 
+#upload2 {
+  background-position: top, right, bottom, left;
+  background-size: 40px 1px, 1px 40px, 40px 1px, 1px 40px;
+  background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+  background-color: #eaf2fb;
+}
+
 @keyframes openNav {
   0% {
     height: 0px;

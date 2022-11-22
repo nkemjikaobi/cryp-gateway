@@ -2,6 +2,8 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { createUploadLink } from "apollo-upload-client";
 
+import { LocalStorageKeys } from "./helpers";
+
 /**
  * The url naturally would be picked from the env
  * This is only temporary till we have different environments
@@ -11,12 +13,18 @@ const apiGateWayUrl = "https://cryp-api.herokuapp.com/graphql";
 
 const httpLink = createUploadLink({
   uri: apiGateWayUrl,
-  credentials: "same-origin",
-  // credentials: "include",
 });
 
 const authLink = setContext((_, { headers }) => {
-  return { headers: { ...headers } };
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem(LocalStorageKeys.TOKEN);
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      Authorization: token ? `${token}` : "",
+    },
+  };
 });
 
 const apolloClient = new ApolloClient({

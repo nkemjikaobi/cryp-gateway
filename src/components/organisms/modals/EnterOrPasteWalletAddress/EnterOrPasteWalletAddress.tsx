@@ -50,7 +50,7 @@ const EnterOrPasteWalletAddress = () => {
       </Formik>
       <p className="text-center text-14 tablet:text-18 font-medium my-[2.813rem]">Or</p>
       <p className="text-center text-14 tablet:text-18 mb-[4.313rem] text-crypGreen-800 font-medium my-[2.813rem] flex items-center justify-center">
-        Scan An Address Code <ScanQRMoreInfo />
+        Scan An Address Code <ScanQRMoreInfo message="Scan the wallet QR Code to get the address. Works best on a mobile view" />
       </p>
       <div className="flex items-center justify-center">
         <CustomButton customClass="mb-12" handleClick={() => {}} size={ButtonProperties.SIZES.big} title="SEND" variant={ButtonProperties.VARIANT.primary.name} />

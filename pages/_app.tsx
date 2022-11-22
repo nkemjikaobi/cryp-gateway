@@ -6,6 +6,8 @@ import React from "react";
 import { Toaster } from "react-hot-toast";
 import { wrapper } from "src/store";
 
+import CustomAppWrapper from "@components/atoms/CustomAppWrapper/CustomAppWrapper";
+
 import apolloClient from "@shared/libs/apollo";
 
 import "../styles/globals.css";
@@ -30,16 +32,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Toaster
-        position="bottom-left"
-        toastOptions={{
-          // Default options for specific types
-          custom: {
-            duration: 3000,
-          },
-        }}
-      />
-      <Component {...pageProps} />
+      <CustomAppWrapper>
+        <Toaster
+          position="bottom-left"
+          toastOptions={{
+            // Default options for specific types
+            custom: {
+              duration: 3000,
+            },
+          }}
+        />
+        <Component {...pageProps} />
+      </CustomAppWrapper>
     </ApolloProvider>
   );
 };
