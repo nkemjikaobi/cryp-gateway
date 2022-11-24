@@ -6,7 +6,7 @@ import Invoice from "@components/organisms/DashboardPage/Invoice/Invoice";
 
 const InvoicePage = () => {
   const getTabNames = () => {
-    return ["prepare an invoice", "send wallet address"];
+    return [{ name: "prepare an invoice" }, { name: "send wallet address" }];
   };
 
   const tabComponents = [{ element: () => <Invoice /> }, { element: () => <EnsureYouAreReceiving /> }];

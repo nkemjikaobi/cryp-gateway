@@ -30,8 +30,8 @@ const DashboardSideBar = () => {
       </CustomLink>
       <ul className="space-y-[5.5rem] text-14 font-medium">
         {DashboardSideBarData.map((data) => (
-          <li className="flex items-center space-x-4 cursor-pointer" key={data.id} onClick={() => router.push(data.route)}>
-            {router.pathname === data.route && <Icon name="activeLink" />}
+          <li className="flex items-center space-x-4 cursor-pointer relative" key={data.id} onClick={() => router.push(data.route)}>
+            {router.pathname === data.route && <Icon className="absolute -left-5" name="activeLink" />}
             <Icon name={data.icon} />
             <h5 className="uppercase">{data.name}</h5>
           </li>

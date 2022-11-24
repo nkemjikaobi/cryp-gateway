@@ -9,7 +9,7 @@ import { LocalStorageKeys } from "./helpers";
  * This is only temporary till we have different environments
  * If we use env now, deployments will have issues since it wont find the staging url.
  */
-const apiGateWayUrl = "https://cryp-api.herokuapp.com/graphql";
+const apiGateWayUrl = "https://api.cryp.africa/graphql";
 
 const httpLink = createUploadLink({
   uri: apiGateWayUrl,

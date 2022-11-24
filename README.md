@@ -1,6 +1,6 @@
 ## Cryp Gateway Frontend
 
-LIVE URL  => https://cryp-gateway.vercel.app/
+LIVE URL => https://cryp-gateway.vercel.app/
 
 This is the application that houses the Cryp Gateway frontend.
 
