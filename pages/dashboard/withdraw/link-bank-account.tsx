@@ -4,6 +4,8 @@ import React from "react";
 import TransactionsLayout from "@components/layouts/TransactionsLayout/TransactionsLayout";
 import LinkBankAccountPage from "@components/modules/LinkBankAccountPage/LinkBankAccountPage";
 
+import withAuth from "@hoc/withAuth";
+
 const LinkBankAccount: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
@@ -20,4 +22,4 @@ const LinkBankAccount: NextPage = () => {
   );
 };
 
-export default LinkBankAccount;
+export default withAuth(LinkBankAccount);

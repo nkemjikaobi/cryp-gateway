@@ -4,6 +4,8 @@ import React from "react";
 import TransactionsLayout from "@components/layouts/TransactionsLayout/TransactionsLayout";
 import AddABusinessPage from "@components/modules/AddABusinessPage/AddABusinessPage";
 
+import withAuth from "@hoc/withAuth";
+
 const AddABusiness: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
@@ -19,4 +21,4 @@ const AddABusiness: NextPage = () => {
   );
 };
 
-export default AddABusiness;
+export default withAuth(AddABusiness);

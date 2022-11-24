@@ -6,6 +6,8 @@ import { AppState } from "src/store/rootReducer";
 import TransactionsLayout from "@components/layouts/TransactionsLayout/TransactionsLayout";
 import ConvertTokensPage from "@components/modules/ConvertTokensPage/ConvertTokensPage";
 
+import withAuth from "@hoc/withAuth";
+
 import { CPUSD, WALLET_INSTANCE } from "@shared/libs/helpers";
 
 const Withdraw: NextPage = () => {
@@ -31,4 +33,4 @@ const Withdraw: NextPage = () => {
   );
 };
 
-export default Withdraw;
+export default withAuth(Withdraw);

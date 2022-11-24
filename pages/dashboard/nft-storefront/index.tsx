@@ -4,6 +4,8 @@ import React from "react";
 import DashboardLayout from "@components/layouts/DashboardLayout/DashboardLayout";
 import NFTStoreFrontPage from "@components/modules/NFTStoreFrontPage/NFTStoreFrontPage";
 
+import withAuth from "@hoc/withAuth";
+
 import { Themes } from "@shared/libs/helpers";
 
 const NFTStoreFront: NextPage = () => {
@@ -14,4 +16,4 @@ const NFTStoreFront: NextPage = () => {
   );
 };
 
-export default NFTStoreFront;
+export default withAuth(NFTStoreFront);

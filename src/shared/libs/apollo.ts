@@ -33,6 +33,14 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   name: "Cryp",
   version: "1.0",
+  defaultOptions: {
+    query: {
+      errorPolicy: "all",
+    },
+    mutate: {
+      errorPolicy: "all",
+    },
+  },
 });
 
 export default apolloClient;

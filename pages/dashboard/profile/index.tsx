@@ -4,6 +4,8 @@ import React from "react";
 import TransactionsLayout from "@components/layouts/TransactionsLayout/TransactionsLayout";
 import ProfilePage from "@components/modules/ProfilePage/ProfilePage";
 
+import withAuth from "@hoc/withAuth";
+
 const Invoice: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
@@ -18,4 +20,4 @@ const Invoice: NextPage = () => {
   );
 };
 
-export default Invoice;
+export default withAuth(Invoice);

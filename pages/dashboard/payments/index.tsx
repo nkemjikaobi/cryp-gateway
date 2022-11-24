@@ -4,6 +4,8 @@ import React from "react";
 import DashboardLayout from "@components/layouts/DashboardLayout/DashboardLayout";
 import DashboardPage from "@components/modules/DashboardPage/DashboardPage";
 
+import withAuth from "@hoc/withAuth";
+
 import { Themes } from "@shared/libs/helpers";
 
 const DashBoardPayments: NextPage = () => {
@@ -14,4 +16,4 @@ const DashBoardPayments: NextPage = () => {
   );
 };
 
-export default DashBoardPayments;
+export default withAuth(DashBoardPayments);

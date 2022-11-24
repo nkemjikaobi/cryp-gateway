@@ -23,6 +23,7 @@
         "groups": [
           "module",
           "/^@components/",
+          "/^@hoc/",
           "/^@hooks/",
           "/^@graphql/",
           "/^@schemas/",

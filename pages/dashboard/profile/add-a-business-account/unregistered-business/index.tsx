@@ -4,6 +4,8 @@ import React from "react";
 import TransactionsLayout from "@components/layouts/TransactionsLayout/TransactionsLayout";
 import UnRegisteredBusinessPage from "@components/modules/AddABusinessPage/UnRegisteredBusinessPage";
 
+import withAuth from "@hoc/withAuth";
+
 const UnRegisteredBusiness: NextPage = () => {
   const getBreadCrumbs = () => {
     return [
@@ -20,4 +22,4 @@ const UnRegisteredBusiness: NextPage = () => {
   );
 };
 
-export default UnRegisteredBusiness;
+export default withAuth(UnRegisteredBusiness);
