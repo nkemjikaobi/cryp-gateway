@@ -27,7 +27,7 @@ const DashboardLayout = ({ children, title, description, keywords, hideFooterOnM
         <meta content={keywords} name="keywords" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <section className="smallLaptop:px-0 bg-crypGray-50 relative overflow-x-hidden">
+      {/* <section className="smallLaptop:px-0 bg-crypGray-50 relative overflow-x-hidden">
         <main className="h-auto z-50 pb-[5rem] flex">
           <div className="hidden smallLaptop:block">
             <DashboardSideBar />
@@ -51,6 +51,36 @@ const DashboardLayout = ({ children, title, description, keywords, hideFooterOnM
             )}
           </>
         )}
+      </section> */}
+      <section className="smallLaptop:px-0 bg-crypGray-50 relative">
+        <>
+          {/* <div className="hidden  smallLaptop:block smallLaptop:sticky smallLaptop:w-full smallLaptop:top-0 smallLaptop:z-50 overflow-hidden"> */}
+          <div className="block sticky w-full top-0 z-50 overflow-hidden">
+            <div className="flex flex-col smallLaptop:flex-row">
+              <div className="hidden smallLaptop:block">
+                <DashboardSideBar />
+              </div>
+              <div className="block smallLaptop:hidden">
+                <DashboardMobileNavigation />
+              </div>
+              <div className="w-full">
+                <main className="">{children}</main>
+              </div>
+            </div>
+            {showFooter && (
+              <>
+                <div className="hidden smallLaptop:block smallLaptop:w-full">
+                  <DesktopFooter theme={theme} />
+                </div>
+                {!hideFooterOnMobile && (
+                  <div className="block w-full z-50 smallLaptop:hidden">
+                    <MobileFooter />
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </>
       </section>
     </div>
   );

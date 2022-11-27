@@ -15,8 +15,8 @@ const Portfolio = () => {
 
   return (
     <div>
-      <div className="smallLaptop:pt-[5.438rem] pl-24 mb-[17rem]">
-        <CustomTabs tabComponents={tabComponents} tabNames={getTabNames()} tabsClass="!w-full" tabsListClass="smallLaptop:ml-[161px] smallLaptop:mr-[281px]" />
+      <div className="pt-8 smallLaptop:pt-[5.438rem] smallLaptop:pl-24 mb-[17rem]">
+        <CustomTabs tabComponents={tabComponents} tabNames={getTabNames()} tabsClass="!w-full px-8" tabsListClass="smallLaptop:ml-[161px] smallLaptop:mr-[281px]" />
       </div>
     </div>
   );

@@ -91,7 +91,7 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 smallLaptop:grid-cols-3 gap-[1.813rem] mt-[5.063rem] w-[62.125rem] mx-auto">
+    <div className="grid grid-cols-2 tablet:grid-cols-3 gap-[1.813rem] mt-[5.063rem] smallLaptop:w-[62.125rem] smallLaptop:mx-auto">
       {galleryData.map((data) => (
         <GalleryItem gallery={data} key={data.id} />
       ))}

@@ -75,6 +75,12 @@ DashboardMobileNavigation.defaultProps = {
 
 const MobileDashboardSideBarData = [
   {
+    id: 1,
+    name: "payments",
+    icon: "chestLight",
+    route: "/dashboard/payments",
+  },
+  {
     id: 2,
     name: "nft storefront",
     icon: "chestLight",

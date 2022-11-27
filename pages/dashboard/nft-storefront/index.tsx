@@ -10,7 +10,7 @@ import { Themes } from "@shared/libs/helpers";
 
 const NFTStoreFront: NextPage = () => {
   return (
-    <DashboardLayout hideFooterOnMobile={true} showFooter={false} theme={Themes.LIGHT} title="NFT Storefront">
+    <DashboardLayout hideFooterOnMobile={true} showFooter={true} theme={Themes.LIGHT} title="NFT Storefront">
       <NFTStoreFrontPage />
     </DashboardLayout>
   );

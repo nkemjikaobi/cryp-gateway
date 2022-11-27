@@ -25,6 +25,7 @@ const DashboardSideBar = () => {
 
   return (
     <div className="bg-white h-[70.813rem] w-[17.063rem] pt-8 pl-8 mb-[1.313rem]">
+      {/* <div className="static top-0 min-w-[20%] smallLaptop:pb-10 min-h-screen"> */}
       <CustomLink destination="/">
         <Icon className="w-[5.125rem] h-[2.75rem] mb-[3.063rem]" name="logo" />
       </CustomLink>

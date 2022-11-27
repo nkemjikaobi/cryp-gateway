@@ -111,7 +111,7 @@ const CreateNFT = () => {
               </div>
               <div className="flex flex-col space-y-[2.5rem] tablet:space-y-[3.188rem] justify-center items-center">
                 <CustomButton
-                  customClass="mt-12"
+                  customClass="mt-12 mb-8"
                   handleClick={() => {}}
                   size={ButtonProperties.SIZES.big}
                   title="CREATE NFT"

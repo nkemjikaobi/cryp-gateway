@@ -1,16 +1,17 @@
 import type { NextPage } from "next";
 import React from "react";
 
-import BasePageLayout from "@components/layouts/BasePageLayout/BasePageLayout";
-import TokenomicsPage from "@components/modules/TokenomicsPage/TokenomicsPage";
-
-import { Themes } from "@shared/libs/helpers";
+import AuthLayout from "@components/layouts/AuthLayout/AuthLayout";
+import SignInPage from "@components/modules/SignInPage/SignInPage";
 
 const Tokenomics: NextPage = () => {
   return (
-    <BasePageLayout hideFooterOnMobile={true} theme={Themes.LIGHT} title="Tokenomics Page">
-      <TokenomicsPage />
-    </BasePageLayout>
+    // <BasePageLayout hideFooterOnMobile={true} theme={Themes.LIGHT} title="Tokenomics Page">
+    //   <SignInPage />
+    // </BasePageLayout>
+    <AuthLayout title="Sign In">
+      <SignInPage />
+    </AuthLayout>
   );
 };
 

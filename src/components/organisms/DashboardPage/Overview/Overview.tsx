@@ -16,7 +16,7 @@ const Overview = () => {
   const { walletInstance } = useSelector((state: AppState) => state.global || {});
 
   return (
-    <div className="smallLaptop:bg-white ml-[0.625rem] mr-4 smallLaptop:w-[70.688rem] television:w-full smallLaptop:h-[33.313rem] relative rounded-br-[2.5rem] rounded-bl-[2.5rem]">
+    <div className="smallLaptop:bg-white ml-[0.625rem] mb-12 mr-4 smallLaptop:w-[70.688rem] television:w-full smallLaptop:h-[33.313rem] relative rounded-br-[2.5rem] rounded-bl-[2.5rem]">
       <ProfileAndNotifications />
       <div className="smallLaptop:flex smallLaptop:items-center smallLaptop:justify-between smallLaptop:pt-[9.188rem] smallLaptop:px-[3.25rem]">
         <WalletBalance />
